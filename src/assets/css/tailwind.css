@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--primary-yellow: #FFBD59;
+		--primary-blue: #7389EB;
+		--primary-black: #272830;
+		--primary-white: #ffffff;
+		--secondary-white: #EDEDED;
+		--gray: #9A9AAC;
+	}
+
+	#__nuxt {
+		height: 100%;
+	}
+
+	html {
+		font-size: 62.5%;
+		font-family: 'Montserrat';
+		font-weight: 400;
+		color: var(--primary-black);
+	}
+
+	button {
+		font-family: 'Montserrat';
+
+		@apply button-style-1;
+	}
+
+	h1 {
+		@apply text-h1-mobile;
+		font-family: 'Bricolage Grotesque';
+	}
+
+	h2 {
+		@apply text-h2-mobile;
+		font-family: 'Bricolage Grotesque';
+	}
+
+	h3 {
+		@apply text-h3-mobile;
+		font-family: 'Bricolage Grotesque';
+	}
+
+	h4 {
+		@apply text-h4-mobile;
+		font-family: 'Bricolage Grotesque';
+	}
+
+	.text-h1,
+	.text-h2,
+	.text-h3,
+	.text-h4,
+	.text-h5 {
+		font-family: 'Bricolage Grotesque';
+	}
+
+	a {
+		transition: opacity 0.1s ease-in-out;
+	}
+
+	a:hover {
+		opacity: 0.75;
+	}
+
+
+	@screen md {
+		h1 {
+			@apply text-h1;
+		}
+
+		h2 {
+			@apply text-h2;
+		}
+
+		h3 {
+			@apply text-h3;
+		}
+
+		h4 {
+			@apply text-h4;
+		}
+	}
+}
+
+@layer components {
+	.body-1-white {
+		@apply text-body-1 text-secondary-white;
+	}
+
+	.body-2-white {
+		@apply text-body-2 text-secondary-white;
+	}
+
+	.button-style-1 {
+		@apply text-button text-white;
+	}
+
+	.section-padding {
+		padding: 0 2.4rem;
+	}
+
+	@screen md {
+
+		.section-margin {
+			margin: 0 4.2rem;
+		}
+	}
+
+	@screen 2xl {
+		.container {
+			max-width: 1280px;
+		}
+	}
+}
+
+@layer utilities {
+}
