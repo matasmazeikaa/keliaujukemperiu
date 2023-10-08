@@ -56,14 +56,28 @@ const FOOTER = {
 
 <template>
 	<footer class="section-padding  bg-primary-black ">
-		<div class="container mx-auto py-160">
+		<div class="container mx-auto py-40 md:py-160">
 			<div class="footer-top-part">
-				<div class="max-w-[26rem]">
+				<div class="md:max-w-[26rem]">
 					<LogoWhite class="mb-24"/>
 					<p class="text-body-2 text-white">Kelionė su kemperiu ar karavanu skirta žmonėms, kurie nori pažinti pasaulį nepriklausomai.</p>
+					<div class="flex gap-24 items-center mt-40 md:hidden">
+						<a
+							href="https://www.facebook.com/groups/keliaujukemperiu"
+							target="_blank"
+						>
+							<IconFacebook />
+						</a>
+						<a
+							href="https://www.facebook.com/groups/keliaujukemperiu"
+							target="_blank"
+						>
+							<IconInstagram />
+						</a>
+					</div>
 				</div>
 
-				<div class="flex flex-col gap-16">
+				<div class="flex flex-col gap-16 order-4">
 					<p class="button-style-1 mb-24 text-primary-yellow">Pardavimas</p>
 					<NuxtLink
 						v-for="service in FOOTER.servicesLinks"
@@ -75,7 +89,7 @@ const FOOTER = {
 					</NuxtLink>
 				</div>
 
-				<div class="flex flex-col gap-16">
+				<div class="flex flex-col gap-16 order-3">
 					<p class="button-style-1 mb-24 text-primary-yellow">Nuoma</p>
 					<NuxtLink
 						v-for="company in FOOTER.companyLinks"
@@ -87,8 +101,8 @@ const FOOTER = {
 					</NuxtLink>
 				</div>
 
-				<div class="flex flex-col gap-16">
-					<p class="button-style-1 mb-24 text-primary-yellow">Nuoma</p>
+				<div class="flex flex-col gap-16 order-2">
+					<p class="button-style-1 mb-24 text-primary-yellow">Kita</p>
 					<NuxtLink
 						v-for="company in FOOTER.otherLinks"
 						:key="company.title"
@@ -110,9 +124,9 @@ const FOOTER = {
 
 <style scoped>
 .footer-top-part {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-gap: 8rem;
+	display: flex;
+	flex-direction: column-reverse;
+	grid-gap: 4rem;
 }
 
 @screen md {

@@ -7,10 +7,17 @@ interface Props {
 	items: {
 		to: string;
 		title: string;
-	}[]
+	}[];
+	white?: boolean;
 }
 
-withDefaults(defineProps<Props>(), {
+const headerRef = ref<HTMLElement | null>(null);
+const isWhiteLocal = ref(false);
+const hoveredNavItem = ref<null|number>(null);
+const currentScrollPosition = ref(0);
+const isScrollingDown = ref(false);
+
+const props = withDefaults(defineProps<Props>(), {
 	items: () => [
 		{
 			to: '/prekyba',
@@ -41,6 +48,8 @@ withDefaults(defineProps<Props>(), {
 
 const isMobileMenuOpen = ref(false);
 
+const isWhite = computed(() => isWhiteLocal.value || props.white);
+
 watch(isMobileMenuOpen, (value) => {
 	if (value) {
 		disableBodyScroll(document.body);
@@ -48,42 +57,112 @@ watch(isMobileMenuOpen, (value) => {
 		enableBodyScroll(document.body);
 	}
 });
+
+const checkIfScrolledBelowHeroSection = () => {
+	const heroSection = document.getElementsByClassName('hero-section')[0];
+
+	if (!heroSection) {
+		return;
+	}
+
+	const scrollPosition = window.scrollY;
+
+	if (scrollPosition + (headerRef.value?.offsetHeight || 0) > heroSection.offsetHeight) {
+		isWhiteLocal.value = true;
+	} else {
+		isWhiteLocal.value = false;
+	}
+};
+
+const checkIfScrollingUpOrDown = () => {
+	const scrollPosition = window.scrollY;
+	const header = document.getElementsByClassName('header')[0];
+
+	if (scrollPosition > currentScrollPosition.value) {
+		isScrollingDown.value = true;
+		// transition header top with transform
+	} else {
+		isScrollingDown.value = false;
+	}
+
+	currentScrollPosition.value = scrollPosition;
+};
+
+onMounted(() => {
+	const heroSection = document.getElementsByClassName('hero-section');
+
+	window.addEventListener('scroll', () => {
+		checkIfScrolledBelowHeroSection();
+		checkIfScrollingUpOrDown();
+	});
+
+	console.log(heroSection);
+});
 </script>
 
 <template>
-	<header class="header h-[6.2rem] lg:h-96">
+	<header
+		ref="headerRef"
+		class="header h-[6.2rem] lg:h-96"
+		:class="{
+			'bg-white': isWhite,
+			'bg-transparent': !isWhite,
+			'is-scrolling-down': isScrollingDown,
+		}"
+	>
 		<nav class="py-20 md:py-16 section-padding">
-			<div class="flex flex-wrap justify-between items-center mx-auto">
-				<div class="lg:flex justify-between items-center w-full hidden">
+			<div class="flex justify-between items-center mx-auto">
+				<div class="flex justify-between items-center w-full">
 					<NuxtLink
 						to="/"
-						class="w-[9.1rem] lg:w-[12.4rem]"
+						class="w-[9.1rem] lg:w-[12.4rem] mr-24"
 						aria-label="Home"
 					>
-						<HeaderLogoWhite />
+						<HeaderLogoWhite v-if="!isWhite" />
+						<HeaderLogoDark v-else />
 					</NuxtLink>
 
 					<div class="flex items-center gap-32">
-						<ul class="gap-32 hidden lg:flex">
+						<ul
+							class="gap-32 hidden items-center lg:flex"
+							@mouseleave="hoveredNavItem = null"
+						>
 							<li
 								v-for="(item, index) in items"
 								:key="item.title"
-								data-aos="fade-down"
-								:data-aos-delay="100 * (index + 1)"
+								class="cursor-pointer"
 							>
 								<NuxtLink
 									:to="item.to"
-									class="text-body-2 text-white"
+									class="text-body-2 cursor-pointer"
+									:class="{
+										'text-white': !isWhite,
+										'text-primary-black': isWhite,
+										'is-blur-hovered': hoveredNavItem !== index && hoveredNavItem !== null,
+									}"
+									@mouseover="hoveredNavItem = index"
 								>
 									{{ item.title }}
 								</NuxtLink>
 							</li>
 						</ul>
-						<div>
-							<p class="working-time mb-4">I - V, 09:00 - 18:00</p>
+						<div class="hidden md:block">
+							<p
+								class="working-time mb-4"
+								:class="{
+									'text-secondary-white': !isWhite,
+									'text-primary-black': isWhite,
+								}"
+							>
+								I - V, 09:00 - 18:00
+							</p>
 							<a
 								class="phone-number"
 								href="tel:+37061809966"
+								:class="{
+									'text-secondary-white': !isWhite,
+									'text-primary-blue': isWhite,
+								}"
 							>
 								+37061809966
 							</a>
@@ -99,13 +178,22 @@ watch(isMobileMenuOpen, (value) => {
 				</div>
 				<div
 					id="hamburger-1"
-					class="hamburger block ml-auto lg:hidden relative z-10"
+					class="hamburger block lg:hidden ml-32 relative z-10"
 					:class="{ 'is-active': isMobileMenuOpen }"
 					@click="isMobileMenuOpen = !isMobileMenuOpen"
 				>
-					<span class="line"></span>
-					<span class="line"></span>
-					<span class="line"></span>
+					<span
+						class="line"
+						:class="{ 'line--dark': isWhite, }"
+					></span>
+					<span
+						class="line"
+						:class="{ 'line--dark': isWhite, }"
+					></span>
+					<span
+						class="line"
+						:class="{ 'line--dark': isWhite }"
+					></span>
 				</div>
 			</div>
 		</nav>
@@ -114,7 +202,7 @@ watch(isMobileMenuOpen, (value) => {
 			class="popup"
 			:class="{ 'popup--active': isMobileMenuOpen }"
 		>
-			<div class="h-full flex flex-col items-center justify-center p-16">
+			<div class="h-full flex flex-col items-center justify-center p-96">
 				<ul class="flex flex-col text-center mt-auto">
 					<li
 						v-for="item in items"
@@ -130,20 +218,25 @@ watch(isMobileMenuOpen, (value) => {
 					</li>
 				</ul>
 
-				<div class="flex flex-col text-center mt-auto max-w-[32.8rem] w-full">
+				<div class="flex flex-col text-center mt-24 max-w-[32.8rem] w-full">
+					<div class="mb-16">
+						<p
+							class="working-time text-primary-black mb-4"
+						>
+							I - V, 09:00 - 18:00
+						</p>
+						<a
+							class="phone-number text-primary-blue"
+							href="tel:+37061809966"
+						>
+							+37061809966
+						</a>
+					</div>
 					<Button
-						to="/valuation"
-						white
-						class="mb-16"
+						to="/kontaktai"
 						@click="isMobileMenuOpen = false"
 					>
-						Get valuation
-					</Button>
-					<Button
-						to="/contact"
-						@click="isMobileMenuOpen = false"
-					>
-						Contact us
+						Susisiekti
 					</Button>
 				</div>
 			</div>
@@ -153,16 +246,25 @@ watch(isMobileMenuOpen, (value) => {
 
 <style>
 
+.is-blur-hovered {
+	transition: all 0.1s ease-in-out;
+	filter: blur(2px);
+}
+
+.is-scrolling-down {
+	transform: translateY(-100%);
+}
+
 .header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 999;
+	transition: all 0.2s ease-in-out;
 }
 
 .working-time {
-	color: var(--secondary-white);
 	font-family: Montserrat;
 	font-size: 12px;
 	font-style: normal;
@@ -171,7 +273,6 @@ watch(isMobileMenuOpen, (value) => {
 }
 
 .phone-number {
-	color: var(--secondary-white);
 	font-family: Montserrat;
 	font-size: 14px;
 	font-style: normal;
@@ -220,7 +321,7 @@ watch(isMobileMenuOpen, (value) => {
 .hamburger .line{
   width: 18px;
   height: 2px;
-  background-color: black;
+  background-color: var(--primary-white);
   display: block;
   margin: 4px auto;
   -webkit-transition: all 0.3s ease-in-out;
@@ -228,8 +329,12 @@ watch(isMobileMenuOpen, (value) => {
   transition: all 0.3s ease-in-out;
 }
 
-.hamburger:hover{
-  cursor: pointer;
+.hamburger .line--dark {
+	background-color: var(--primary-black);
+}
+
+#hamburger-1.is-active .line {
+	background-color: var(--primary-black);
 }
 
 #hamburger-1.is-active .line:nth-child(2){

@@ -4,11 +4,14 @@ const {
 	sections,
 	pageData,
 } = await useStrapiPage('home');
+
+console.log('sections', sections.value);
 </script>
 
 <template>
 	<SectionHeroMain
 		v-bind="hero"
+		id="hero-section"
 	/>
 
 	<Component
@@ -16,6 +19,7 @@ const {
 		v-for="section in sections"
 		:key="section.id"
 		:page-category="sections[0].pageCategory"
+		v-bind="section"
 	>
 		{{ section.pageCategory }}
 	</Component>

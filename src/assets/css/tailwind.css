@@ -57,15 +57,6 @@
 		font-family: 'Bricolage Grotesque';
 	}
 
-	a {
-		transition: opacity 0.1s ease-in-out;
-	}
-
-	a:hover {
-		opacity: 0.75;
-	}
-
-
 	@screen md {
 		h1 {
 			@apply text-h1;

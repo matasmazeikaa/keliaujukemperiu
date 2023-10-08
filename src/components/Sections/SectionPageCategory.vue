@@ -17,13 +17,13 @@ console.log(props, 'find props');
 </script>
 
 <template>
-	<div class="section-padding md:my-160">
+	<div class="section-padding my-40 md:my-160">
 		<div class="container mx-auto">
-			<div class="grid grid-cols-2 gap-32">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-32">
 				<div
 					v-for="category in pageCategory"
 					:key="category.title"
-					class="p-40 pt-192 relative max-w-[62.4rem] max-h-[40rem]"
+					class="p-20 md:p-40 pt-44 md:pt-192 relative max-w-[62.4rem] max-h-[40rem]"
 				>
 					<NuxtImg
 						width="624"
@@ -33,7 +33,7 @@ console.log(props, 'find props');
 					/>
 					<div class="image-overlay" />
 					<div class="relative z-10">
-						<h3 class="text-h3 text-white title mb-8">{{ category.title }}</h3>
+						<h3 class="text-h4 md:text-h3 text-white md:title mb-8">{{ category.title }}</h3>
 						<p class="text-body-2 text-white mb-16">{{ category.subtitle }}</p>
 						<LinkButton>Daugiau</LinkButton>
 					</div>
@@ -59,11 +59,6 @@ console.log(props, 'find props');
 	height: 100%;
 	width: 100%;
 	background: linear-gradient(65deg, #272830 0%, rgba(39, 40, 48, 0.80) 19.5%, rgba(39, 40, 48, 0.00) 100%);
-}
-
-.title {
-	font-size: 3.2rem;
-	line-height: 4.8rem;
 }
 
 .grid-container {

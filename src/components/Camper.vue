@@ -1,46 +1,62 @@
 <script lang="ts" setup>
 interface Props {
 	title: string;
-	previewSubtitle: string;
+	previewDescription: string;
 	pricePerDay: string;
 	year: string;
 	gearbox: string;
 	placesToSit: string;
 	placesToSleep: string;
+	thumbnail: {};
+	slug: string;
 }
 
 defineProps<Props>();
 </script>
 
 <template>
-	<div>
-		<NuxtImg />
-		<h3 class="text-h3 mb-8">{{ title }}</h3>
-		<p class="text-body-2 text-primary-black mb-16">{{ previewSubtitle }}</p>
-		<div
-			v-if="pricePerDay"
-			class="flex gap-8 mb-24"
-		>
-			<p class="text-h4 text-primary-black mb-8">Nuo</p>
-			<p class="text-h3 text-primary-black mb-16">{{ pricePerDay }}€ / d.</p>
-		</div>
+	<div class="flex items-center gap-40">
+		<NuxtImg
+			class="hero-image"
+			:src="thumbnail.data.attributes.url"
+			:quality="85"
+			width="600"
+			height="450"
+		/>
 		<div>
-			<CamperSpecification
-				type="year"
-				:value="year"
-			/>
-			<CamperSpecification
-				type="gearbox"
-				:value="gearbox"
-			/>
-			<CamperSpecification
-				type="placesToSit"
-				:value="placesToSit"
-			/>
-			<CamperSpecification
-				type="placesToSleep"
-				:value="placesToSleep"
-			/>
+			<h3 class="text-h3 mb-8">{{ title }}</h3>
+			<p class="text-body-2 text-primary-black mb-16">{{ previewDescription }}</p>
+			<div
+				v-if="pricePerDay"
+				class="flex gap-8 mb-24 h-[5.4rem]"
+			>
+				<p class="text-h4 text-primary-black mb-8">Nuo</p>
+				<p class="text-h3 text-primary-black mb-16">{{ pricePerDay }}€ / d.</p>
+			</div>
+			<div class="flex gap-40 mb-24">
+				<CamperSpecification
+					type="year"
+					:value="year"
+				/>
+				<CamperSpecification
+					type="gearbox"
+					:value="gearbox"
+				/>
+				<CamperSpecification
+					type="placesToSit"
+					:value="placesToSit"
+				/>
+				<CamperSpecification
+					type="placesToSleep"
+					:value="placesToSleep"
+				/>
+			</div>
+			<Button
+				class="w-full"
+				:to="`/nuoma/kemperiai/${slug}`"
+			>
+				Daugiau apie kemperį
+			</Button>
 		</div>
 	</div>
 </template>

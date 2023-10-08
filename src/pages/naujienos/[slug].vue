@@ -33,10 +33,6 @@ const date = dayjs(blog.value.createdAt).format('MMMM D, YYYY');
 
 const promotedBlogs = computed(() => blog?.value?.promotedBlogs?.data ?? []);
 
-console.log(blog, 'blog');
-console.log(blog, 'blog');
-console.log(blog.value, 'blog real');
-
 const markdown = new MarkdownIt();
 </script>
 

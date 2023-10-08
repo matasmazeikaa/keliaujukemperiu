@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Strapi4ResponseSingle } from '~/types';
-
 const { findOne } = useStrapi();
 
 const { data: testimonialSection } = await useAsyncData(
@@ -24,13 +22,13 @@ const setControlledSwiper = (swiper: any) => {
 <template>
 	<div class="relative section-padding my-160">
 		<div class="container mx-auto text-center text-white relative z-100">
-			<h2 class="h2 text-black mb-32">{{ title }}</h2>
-			<QuotesIcon class="mx-auto mb-32" />
+			<h2 class="text-h4 md:text-h2text-black mb-24 md:mb-64">{{ title }}</h2>
+			<QuotesIcon class="mx-auto mb-16 md:mb-32" />
 			<div
 				class="relative text-center"
 			>
-				<ArrowRight
-					class="cursor-pointer z-10 hover:opacity-75 transition-opacity rotate-180 absolute left-0 top-1/2 transform -translate-y-1/2"
+				<IconArrowRightGallery
+					class="hidden md:block cursor-pointer z-10 hover:opacity-75 transition-opacity absolute left-0 top-1/2 transform -translate-y-1/2"
 					role="button"
 					alt="previous testimonial"
 					aria-label="previous testimonial"
@@ -60,25 +58,43 @@ const setControlledSwiper = (swiper: any) => {
 						:key="testimonial.fullName"
 					>
 						<div class="max-w-[72rem] mx-auto">
-							<h4 class="text-h4 text-black mb-32">{{ testimonial.text }}</h4>
-							<p class="button-style-1 mb-32 md:mb-54 text-black">{{ testimonial.fullName }}</p>
+							<h4 class="text-body-2 md:text-h4 text-black mb-16 md:mb-32">{{ testimonial.text }}</h4>
+							<p class="text-body-2 md:button-style-1 mb-32 md:mb-54 text-black">{{ testimonial.fullName }}</p>
 						</div>
 					</SwiperSlide>
 				</Swiper>
 
-				<ArrowRight
-					class="z-10 cursor-pointer hover:opacity-75 transition-opacity absolute right-0 top-1/2 transform -translate-y-1/2"
+				<IconArrowRightGallery
+					class="hidden md:block z-10 cursor-pointer hover:opacity-75 transition-opacity  rotate-180 absolute right-0 top-1/2 transform -translate-y-1/2"
 					role="button"
 					alt="next testimonial"
 					aria-label="next testimonial"
 					@click="controlledSwiper.slideNext()"
 				/>
 
-				<div class="flex items-center justify-center gap-24">
-					<Indicators
-						:active-indicator-index="controlledSwiper.realIndex"
-						:length="testimonials.length"
-						@on-click="controlledSwiper?.slideTo($event)"
+				<div class="flex items-center">
+					<IconArrowRightGallery
+						class="md:hidden block cursor-pointer z-10 hover:opacity-75 transition-opacity"
+						role="button"
+						alt="previous testimonial"
+						aria-label="previous testimonial"
+						@click="controlledSwiper.slidePrev()"
+					/>
+
+					<div class="flex items-center justify-center gap-24 w-full mx-20">
+						<Indicators
+							:active-indicator-index="controlledSwiper.realIndex"
+							:length="testimonials.length"
+							@on-click="controlledSwiper?.slideTo($event)"
+						/>
+					</div>
+
+					<IconArrowRightGallery
+						class="md:hidden block z-10 cursor-pointer hover:opacity-75 transition-opacity  rotate-180"
+						role="button"
+						alt="next testimonial"
+						aria-label="next testimonial"
+						@click="controlledSwiper.slideNext()"
 					/>
 				</div>
 			</div>

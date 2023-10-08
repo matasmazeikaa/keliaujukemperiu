@@ -19,7 +19,7 @@ const pageData = computed((): any => data.value?.data.attributes);
 
 	<SectionListImages
 		v-bind="pageData.chooseCamperSection"
-		to="/nuoma/kemperiai"
+		to="/prekyba/kemperiai"
 	/>
 
 	<SectionPartners />

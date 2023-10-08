@@ -2,7 +2,7 @@
 interface Props {
 	secondary?: boolean;
 	white?: boolean;
-	black?: boolean;
+	orange?: boolean;
 	to?: string;
 	isLoading?: boolean;
 }
@@ -18,7 +18,8 @@ defineProps<Props>();
 			:class="{
 				'backdrop-blur-sm bg-white bg-opacity-10 text-white': secondary,
 				'button--white': white,
-				'bg-primary-black text-primary-yellow border-gray-200': black,
+				'bg-primary-yellow text-primary-black border-gray-200': orange,
+				'bg-primary-blue': !secondary && !white && !orange,
 			}"
 			:to="to"
 		>
@@ -30,8 +31,9 @@ defineProps<Props>();
 			:class="{
 				'backdrop-blur-sm bg-white bg-opacity-10 text-white': secondary,
 				'button--white': white,
-				'bg-primary-black text-primary-yellow border-gray-200': black,
+				'bg-primary-yellow text-primary-black border-gray-200': orange,
 				'btn-primary--loading': isLoading,
+				'bg-primary-blue': !secondary && !white && !orange,
 			}"
 		>
 			<Transition name="fade">
@@ -56,7 +58,6 @@ defineProps<Props>();
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--primary-blue);
 	transition: opacity 0.1s ease-in-out;
 	width: 100%;
 }

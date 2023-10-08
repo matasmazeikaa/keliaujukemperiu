@@ -1,0 +1,40 @@
+<script lang="ts" setup>
+
+interface Props {
+	prices: {
+		title: string;
+		subtitle: string;
+	}[];
+	infos: string[]
+}
+
+const props = defineProps<Props>();
+
+const title = props.prices.length > 1 ? 'Kainos' : 'Kaina';
+</script>
+
+<template>
+	<section class="section-padding my-160">
+		<div class="container mx-auto">
+			<h2 class="text-h2 mb-64">{{ title }}</h2>
+			<div class="mb-40">
+				<div
+					v-for="price in prices"
+					:key="price.title"
+				>
+					<h3 class="text-h3 mb-8">{{ price.title }}</h3>
+					<p class="button-style-1 text-primary-black">{{ price.subtitle }}</p>
+				</div>
+			</div>
+			<div>
+				<p
+					v-for="info in infos"
+					:key="info"
+					class="text-body-2"
+				>
+					*{{ info }}
+				</p>
+			</div>
+		</div>
+	</section>
+</template>

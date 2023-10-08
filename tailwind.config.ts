@@ -47,7 +47,7 @@ export default <Partial<Config>>{
 					},
 				],
 				'h1-mobile': [
-					'2.8rem',
+					'3.2rem',
 					{
 						fontWeight: '600',
 					},
@@ -98,6 +98,13 @@ export default <Partial<Config>>{
 					{
 						fontWeight: '600',
 						lineHeight: '2rem',
+					},
+				],
+				small: [
+					'1.2rem',
+					{
+						fontWeight: '500',
+						lineHeight: '1.6rem',
 					},
 				],
 				'body-1': [

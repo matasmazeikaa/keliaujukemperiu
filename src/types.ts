@@ -137,4 +137,5 @@ export const COMPONENT_CMS_MAP: any = {
 	'shared.section-with-properties': 'SectionWithProperties',
 	'shared.section-yellow-background': 'SectionYellowBackground',
 	'shared.section-steps': 'SectionSteps',
+	'sections.hero-travel-guarantee-section': 'SectionTravelGuaranties',
 };
