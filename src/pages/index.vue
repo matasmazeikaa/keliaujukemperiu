@@ -5,7 +5,11 @@ const {
 	pageData,
 } = await useStrapiPage('home');
 
-console.log('sections', sections.value);
+definePageMeta({
+	layout: 'dark-header',
+});
+
+console.log(hero.value, 'hero section');
 </script>
 
 <template>

@@ -10,6 +10,7 @@ interface Props {
 			to: string;
 		}
 	}[]
+	isTargeBlank: boolean;
 }
 
 const props = defineProps<Props>();
@@ -18,17 +19,18 @@ console.log(props, 'find props');
 </script>
 
 <template>
-	<div class="section-padding md:my-160">
+	<div class="section-padding py-40 md:my-160">
 		<div class="container mx-auto">
+			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">Išsirinkite įrangą iš mūsų partnerių</h2>
 			<div class="flex flex-wrap justify-center gap-32">
 				<div
 					v-for="category in pageCategory"
 					:key="category.title"
-					class="p-40 pt-156 relative max-w-[62.4rem] max-h-[40rem]"
+					class="p-20 md:p-40 md:pt-156 relative w-full max-w-[62.4rem] max-h-[40rem]"
 				>
 					<NuxtImg
 						width="120"
-						class="mb-16 relative z-10"
+						class="mb-120 md:mb-16 relative z-10"
 						:src="category.icon.data.attributes.url"
 					/>
 					<NuxtImg
@@ -39,9 +41,14 @@ console.log(props, 'find props');
 					/>
 					<div class="image-overlay" />
 					<div class="relative z-10">
-						<h3 class="text-h3 text-white title mb-8">{{ category.title }}</h3>
-						<p class="text-body-2 text-white mb-16">{{ category.subtitle }}</p>
-						<LinkButton>Gamintojo puslapis</LinkButton>
+						<h3 class="text-h4 md:text-h3 text-white title mb-8">{{ category.title }}</h3>
+						<p class="text-body-2 hidden md:block text-white mb-16">{{ category.subtitle }}</p>
+						<LinkButton
+							:target="isTargeBlank ? '_blank' : '_self'"
+							:to="category.to"
+						>
+							Gamintojo puslapis
+						</LinkButton>
 					</div>
 				</div>
 			</div>

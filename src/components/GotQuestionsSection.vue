@@ -8,9 +8,6 @@ const { data: gotQuestionsSection } = await useAsyncData(
 	}),
 );
 
-console.log(gotQuestionsSection.value);
-console.log(gotQuestionsSection.value, 'questions');
-
 const title = computed(() => gotQuestionsSection.value?.data.attributes.title ?? '');
 const subtitle = computed(() => gotQuestionsSection.value?.data.attributes.subtitle ?? '');
 const ctaButton = computed(() => gotQuestionsSection.value?.data.attributes.ctaButton ?? {
@@ -27,11 +24,11 @@ const image = computed(() => gotQuestionsSection.value?.data.attributes.image ??
 			:src="image.data.attributes.url"
 			:quality="85"
 		/>
-		<div class="py-64 md:py-160 section-padding container mx-auto text-center text-white">
+		<div class="py-64 md:py-160 section-padding container mx-auto text-center text-white relative z-10">
 			<h2 class="text-h4 md:text-h2 mb-8 md:mb-16">{{ title }}</h2>
 			<p class="text-body-2 mb-24 md:mb-32">{{ subtitle }}</p>
 			<Button
-				:to="ctaButton.to"
+				to="/kontaktai"
 				orange
 			>
 				{{ ctaButton.text }}

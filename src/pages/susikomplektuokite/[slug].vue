@@ -23,6 +23,10 @@ const partner = computed(() => partners?.value?.data[0].attributes || {
 	},
 });
 
+definePageMeta({
+	layout: 'dark-header',
+});
+
 console.log(partner, 'partner');
 </script>
 
@@ -31,7 +35,7 @@ console.log(partner, 'partner');
 		v-bind="partner.Hero"
 	/>
 
-	<section class="section-padding">
+	<section class="section-padding my-40 md:mt-160 md:mb-80">
 		<div class="container mx-auto">
 			<div class="gallery">
 				<div
@@ -42,9 +46,37 @@ console.log(partner, 'partner');
 					<NuxtImg
 						:src="image.attributes.url"
 						:quality="85"
+						:width="image.attributes.width"
+						:height="image.attributes.height"
 					/>
 				</div>
 			</div>
+		</div>
+	</section>
+
+	<SectionAboutCamper :text="partner.about" />
+
+	<SectionCamperPrice
+		:prices="partner.camperPrice"
+		:infos="partner.info.map(({ title }) => title)"
+	/>
+
+	<section class="section-padding py-80">
+		<div class="container mx-auto">
+			<Camper
+				v-for="{ attributes: camper } in partner.campers.data"
+				:key="camper.title"
+				class="mb-80"
+				:gearbox="camper.gearbox"
+				:year="camper.year"
+				:title="camper.title"
+				:price-per-day="camper.pricePerDay"
+				:places-to-sit="camper.placesToSit"
+				:places-to-sleep="camper.placesToSleep"
+				:preview-description="camper.previewDescription"
+				:slug="camper.slug"
+				:thumbnail="camper.thumbnail"
+			/>
 		</div>
 	</section>
 
@@ -53,11 +85,47 @@ console.log(partner, 'partner');
 
 <style scoped>
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 48rem 48rem;
-    grid-gap: 0px;
-    grid-row-gap: 24px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2.4rem;
+}
+
+.gallery > div:not(.s) {
+	width: 100%;
+}
+
+@screen xl {
+	.gallery > div:nth-child(1) {
+		width: 56.333333%;
+	}
+
+	.gallery > div:nth-child(2) {
+		width: 41.6666666667%;
+	}
+	.gallery > div:nth-child(3) {
+		width: 41.6666666667%;
+	}
+
+	.gallery > div:nth-child(4) {
+		width: 56.333333%;
+	}
+}
+
+@screen md {
+	.gallery > div:nth-child(1) {
+		width: 55.333333%;
+	}
+
+	.gallery > div:nth-child(2) {
+		width: 41.6666666667%;
+	}
+	.gallery > div:nth-child(3) {
+		width: 41.6666666667%;
+	}
+
+	.gallery > div:nth-child(4) {
+		width: 55.333333%;
+	}
 }
 
 .gallery {
@@ -69,29 +137,5 @@ img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-}
-
-.box-0 {
-    grid-column: 1 / 10;
-    grid-row: 1;
-	width: 720px;
-}
-
-.box-1 {
-    grid-column: 8 / 13;
-    grid-row: 1;
-	width: 536px;
-}
-
-.box-2 {
-	grid-column: 1 / 7;
-	grid-row: 2;
-	width: 536px;
-}
-
-.box-3 {
-	grid-column: 7 / 13;
-	grid-row: 2;
-	width: 720px;
 }
 </style>

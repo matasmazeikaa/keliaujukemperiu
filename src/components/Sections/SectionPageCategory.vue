@@ -33,9 +33,14 @@ console.log(props, 'find props');
 					/>
 					<div class="image-overlay" />
 					<div class="relative z-10">
-						<h3 class="text-h4 md:text-h3 text-white md:title mb-8">{{ category.title }}</h3>
+						<h3 class="text-h4 md:title text-white md:title mb-8">{{ category.title }}</h3>
 						<p class="text-body-2 text-white mb-16">{{ category.subtitle }}</p>
-						<LinkButton>Daugiau</LinkButton>
+						<LinkButton
+							class="hover:opacity-75 transition-opacity"
+							:to="category.to"
+						>
+							Daugiau
+						</LinkButton>
 					</div>
 				</div>
 			</div>
@@ -59,6 +64,11 @@ console.log(props, 'find props');
 	height: 100%;
 	width: 100%;
 	background: linear-gradient(65deg, #272830 0%, rgba(39, 40, 48, 0.80) 19.5%, rgba(39, 40, 48, 0.00) 100%);
+}
+
+.title {
+	font-size: 3.2rem;
+	line-height: 4.8rem;
 }
 
 .grid-container {

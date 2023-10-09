@@ -20,7 +20,7 @@ const isScrollingDown = ref(false);
 const props = withDefaults(defineProps<Props>(), {
 	items: () => [
 		{
-			to: '/prekyba',
+			to: '/pardavimas',
 			title: 'Prekyba',
 		},
 		{
@@ -103,7 +103,7 @@ onMounted(() => {
 <template>
 	<header
 		ref="headerRef"
-		class="header h-[6.2rem] lg:h-96"
+		class="header h-[7.2rem] lg:h-96"
 		:class="{
 			'bg-white': isWhite,
 			'bg-transparent': !isWhite,
@@ -112,14 +112,20 @@ onMounted(() => {
 	>
 		<nav class="py-20 md:py-16 section-padding">
 			<div class="flex justify-between items-center mx-auto">
-				<div class="flex justify-between items-center w-full">
+				<div class="flex justify-between items-center w-full ">
 					<NuxtLink
 						to="/"
-						class="w-[9.1rem] lg:w-[12.4rem] mr-24"
+						class="w-[9.1rem] h-[3.2rem] md:h-40 lg:w-[12.4rem] mr-24 z-10"
 						aria-label="Home"
 					>
-						<HeaderLogoWhite v-if="!isWhite" />
-						<HeaderLogoDark v-else />
+						<HeaderLogoWhite
+							v-if="!isWhite"
+							class="w-full h-full"
+						/>
+						<HeaderLogoDark
+							v-if="isWhite || isMobileMenuOpen"
+							class="w-full h-full"
+						/>
 					</NuxtLink>
 
 					<div class="flex items-center gap-32">
@@ -363,11 +369,11 @@ onMounted(() => {
   position: fixed;
   top: 0;
   transform: translateX(100%);
-  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .popup.popup--active {
   transform: translateX(0);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .popup .menu_box {

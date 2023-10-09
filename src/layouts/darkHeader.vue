@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-	<TheHeader white/>
+	<TheHeader />
 	<slot></slot>
 
 	<TheFooter />

@@ -7,7 +7,7 @@ export default <DefaultConfigOptions>{
 			text: {
 				outer: 'w-full md:w-fit',
 				label: 'button-style-1 text-primary-black',
-				inner: 'flex mt-16 items-center relative border border-secondary-french-gray overflow-hidden focus-within:border-primary',
+				inner: 'flex mt-8 md:mt-16 items-center relative border border-secondary-french-gray overflow-hidden focus-within:border-primary',
 				input: 'w-full text-primary-black leading-none outline-none h-[5.6rem] bg-transparent py-16 px-24 button-style-1 text-gray',
 				help: 'text-xs text-gray-500',
 				messages: 'list-none p-0 mt-1 mb-0',

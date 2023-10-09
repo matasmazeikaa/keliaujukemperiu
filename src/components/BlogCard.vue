@@ -17,16 +17,7 @@ const props = defineProps<Props>();
 
 const date = dayjs(props.createdAt).format('MMMM D, YYYY');
 
-console.log(props.thumbnail);
-console.log(props.thumbnail);
-console.log(props.slug, 'slug');
-
-const to = {
-	name: 'naujienos',
-	params: {
-		slug: props.slug,
-	},
-};
+const to = `/naujienos/${props.slug}`;
 </script>
 
 <template>
@@ -40,7 +31,7 @@ const to = {
 			:src="thumbnail.data.attributes.url"
 			:quality="85"
 		/>
-		<img class="mb-32"/>
+		<img class="mb-16 md:mb-32"/>
 		<div class="mb-12 text-label flex gap-4 items-center">
 			<label class=" text-primary-blue">{{ author }}</label>
 			<label class="text-gray">•</label>

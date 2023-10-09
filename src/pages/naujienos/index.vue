@@ -104,7 +104,7 @@ console.log(blogs.value, 'blogs');
 	<SectionHeroSubpage title="Naujienos" />
 	<section class="section-padding">
 		<div class="container mx-auto">
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 py-64">
+			<div class="place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 py-20 md:py-64">
 				<BlogCard
 					v-for="{
 						attributes: {
@@ -120,8 +120,6 @@ console.log(blogs.value, 'blogs');
 					:slug="slug"
 				/>
 			</div>
-
-			<Button white />
 		</div>
 	</section>
 	<GotQuestionsSection/>

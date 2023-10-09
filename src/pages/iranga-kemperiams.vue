@@ -22,6 +22,7 @@ console.log(pageData, 'page data');
 
 	<SectionPartnerCategory
 		:page-category="pageData.choosePartnerEquipmentSection.pageCategory"
+		is-targe-blank
 	/>
 
 	<GotQuestionsSection/>

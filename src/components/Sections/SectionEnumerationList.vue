@@ -11,11 +11,11 @@ defineProps<Props>();
 </script>
 
 <template>
-	<section class="section-padding py-160">
+	<section class="section-padding py-40 md:py-160">
 		<div class="container mx-auto">
-			<h2 class="text-h2 text-primary-black mb-64">{{ title }}</h2>
+			<h2 class="text-h4 md:text-h2 text-primary-black mb-24 md:mb-64">{{ title }}</h2>
 
-			<div class="flex gap-48 flex-wrap justify-between">
+			<div class="flex gap-24 md:gap-48 flex-wrap justify-between">
 				<div
 					v-for="item, index in listItem"
 					:key="item.title"

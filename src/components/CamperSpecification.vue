@@ -63,7 +63,7 @@ const getSpecification = computed(() => {
 		<Component
 			:is="getSpecification?.icon"
 			:class="{
-				'w-40 h-40 mb-20': large,
+				'mb-8 w-24 h-24 md:w-40 md:h-40 md:mb-20': large,
 				'mb-8 w-24 h-24': !large
 			}"
 		/>
@@ -71,7 +71,7 @@ const getSpecification = computed(() => {
 			class="text-primary-black mb-4"
 			:class="{
 				'button-style-1': !large,
-				'text-h4': large,
+				'button-style-1 md:text-h4': large,
 			}"
 		>
 			{{ value }}

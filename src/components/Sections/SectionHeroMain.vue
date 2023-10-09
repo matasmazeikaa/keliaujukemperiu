@@ -14,7 +14,7 @@ interface Props {
 	ctaButton?: {
 		text: string;
 		type: 'primary' | 'white';
-		url: string;
+		to: string;
 	}[]
 }
 
@@ -69,6 +69,7 @@ console.log(props);
 							v-for="button in ctaButton"
 							:key="button.text"
 							v-bind="{ [button.type]: true, }"
+							:to="button.to"
 							class="min-w-[14.4rem]"
 						>
 							{{ button.text }}

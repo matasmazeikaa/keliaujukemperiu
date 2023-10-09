@@ -37,15 +37,15 @@ const markdown = new MarkdownIt();
 </script>
 
 <template>
-	<div class="h-[6.2rem] lg:h-96"/>
-	<section class="section-padding">
+	<div class="h-[7.2rem] lg:h-96"/>
+	<section class="section-padding mt-20 md:mt-40">
 		<div class="container mx-auto text-center max-w-[72rem]">
-			<div class="mx-auto mb-12 text-label flex gap-4 justify-center text-center">
+			<div class="mx-auto mb-8 md:mb-12 text-label flex gap-4 justify-center text-center">
 				<label class=" text-primary-blue">{{ blog.author }}</label>
 				<label class="text-gray">•</label>
 				<label class="text-gray capitalize">{{ date }}</label>
 			</div>
-			<h1 class="text-h1 mb-40">{{ blog.title }}</h1>
+			<h1 class="text-h4 md:text-h1 mb-16 md:mb-40">{{ blog.title }}</h1>
 
 			<div
 				class="blog-content"
@@ -91,9 +91,23 @@ const markdown = new MarkdownIt();
 	white-space: break-spaces;
 }
 
+@screen md {
+	.blog-content p {
+		font-size: 18px;
+	}
+
+	.blog-content h3 {
+		font-size: 48px;
+	}
+
+	.blog-content h4 {
+		font-size: 24px;
+	}
+}
+
 .blog-content p {
 	font-family: Montserrat;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 400;
 	line-height: 30px;
 	letter-spacing: 0em;
@@ -102,7 +116,7 @@ const markdown = new MarkdownIt();
 
 .blog-content h3 {
 	font-family: Bricolage Grotesque;
-	font-size: 48px;
+	font-size: 24px;
 	font-weight: 600;
 	line-height: 56px;
 	letter-spacing: 0em;
@@ -112,12 +126,11 @@ const markdown = new MarkdownIt();
 
 .blog-content h4 {
 	font-family: Bricolage Grotesque;
-	font-size: 24px;
+	font-size: 16px;
 	font-weight: 500;
 	line-height: 32px;
 	letter-spacing: 0em;
 	text-align: left;
 	margin-bottom: 1.6rem;
-
 }
 </style>

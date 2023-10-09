@@ -8,11 +8,9 @@ export const useStrapiPage = async (page: string) => {
 	const { data } = await useAsyncData(
 		`${page}-page`,
 		() => findOne<{hero: IHero, sections: ISection[], seo: ISeo}>(`${page}-page`, {
-			populate: ['deep, 10'],
+			populate: ['deep,100'],
 		}),
 	);
-
-	console.log('nice');
 
 	const pageData = computed(() => data.value?.data.attributes);
 

@@ -7,11 +7,6 @@ const { data } = await useAsyncData(
 		populate: ['work.*'],
 	}),
 );
-
-const { sections } = await useStrapiPage('contact');
-const contactUsPage = computed(() => data.value?.data.attributes);
-
-console.log(contactUsPage.value, 'contactUsPage');
 </script>
 
 <template>
