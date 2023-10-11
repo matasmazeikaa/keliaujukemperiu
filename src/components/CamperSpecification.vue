@@ -77,9 +77,9 @@ const getSpecification = computed(() => {
 			{{ value }}
 		</p>
 		<p
-			class="text-primary-black"
+			class="!text-primary-black"
 			:class="{
-				'button-style-1': large,
+				'text-small md:button-style-1': large,
 				'text-small': !large,
 			}"
 		>

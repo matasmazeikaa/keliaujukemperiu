@@ -26,8 +26,6 @@ const partner = computed(() => partners?.value?.data[0].attributes || {
 definePageMeta({
 	layout: 'dark-header',
 });
-
-console.log(partner, 'partner');
 </script>
 
 <template>

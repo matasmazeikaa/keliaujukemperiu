@@ -23,10 +23,6 @@ const props = defineProps<Props>();
 const hasValues = computed(() => props.values && props.values.length > 0);
 
 const image = computed(() => props.image);
-
-console.log(props.values);
-
-console.log(props);
 </script>
 
 <template>
@@ -50,7 +46,7 @@ console.log(props);
 						:quality="85"
 						:width="icon.data.attributes.width"
 						:height="icon.data.attributes.height"
-						class="mb-40"
+						class="mb-16 mx-auto md:mb-40"
 					/>
 					<h1 class="text-h1-mobile md:text-h1 mb-8 md:mb-16 text-center md:text-left">{{ title }}</h1>
 					<p class="text-body-2 md:text-body-1 text-center md:text-left mb-16 md:mb-32">{{ subtitle }}</p>

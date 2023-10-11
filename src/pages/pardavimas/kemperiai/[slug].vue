@@ -23,14 +23,15 @@ const camper = computed(() => campers?.value?.data[0].attributes || {
 		data: [],
 	},
 });
-
-console.log(camper, 'camperis');
 </script>
 
 <template>
 	<SectionHeroSubpage :title="camper.title" />
 
-	<SectionSwiperGallery :images="camper.innerPageImages.data" />
+	<SectionSwiperGallery
+		v-if="camper.innerPageImages.data.length"
+		:images="camper.innerPageImages.data"
+	/>
 
 	<SectionAboutCamper :text="camper.about" />
 
@@ -48,13 +49,8 @@ console.log(camper, 'camperis');
 	<SectionCamperComplectation :item-list="camper.complectation" />
 
 	<SectionCamperPrice
-		:prices="[
-			{
-				title: `${camper.pricePerDay} EUR su PVM`,
-				subtitle: 'Dienos kaina'
-			}
-		]"
-		:infos="['Civilinis ir KASKO draudimai su nuomos paslauga! Frančizė tik 300-800 eur.']"
+		:prices="camper.priceFull"
+		:infos="camper.camperPriceInfo.map(({ title }) => title)"
 	/>
 
 	<GotQuestionsSection/>

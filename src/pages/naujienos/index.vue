@@ -91,13 +91,6 @@ watch(propertySort, () => {
 watch(currentPage, () => {
 	fetchProperties();
 });
-
-const {
-	hero,
-	sections,
-} = await useStrapiPage('blog');
-
-console.log(blogs.value, 'blogs');
 </script>
 
 <template>

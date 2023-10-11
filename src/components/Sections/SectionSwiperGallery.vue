@@ -9,8 +9,6 @@ interface Props {
 
 const props = defineProps<Props>();
 
-console.log(props.images);
-
 const swiperInstance = useSwiper();
 
 const controlledSwiper = ref<typeof swiperInstance>({} as typeof swiperInstance);
@@ -30,7 +28,7 @@ setTimeout(() => {
 </script>
 
 <template>
-	<section class="section-padding bg-white py-80">
+	<section class="section-padding bg-white my-20 md:my-80">
 		<div class="container mx-auto">
 			<Swiper
 				v-if="images.length"
@@ -46,7 +44,7 @@ setTimeout(() => {
 				>
 					<NuxtImg
 						:src="image.attributes.url"
-						class="w-[128rem] h-[72rem] object-cover"
+						class="md:w-[128rem] md:h-[72rem] object-cover"
 						width="1280"
 						height="720"
 						quality="85"
@@ -55,7 +53,7 @@ setTimeout(() => {
 			</Swiper>
 
 			<div class="flex items-center">
-				<div class="p-16">
+				<div class="p-16 hidden md:block">
 					<IconArrowRightGallery
 						class="cursor-pointer"
 						role="button"
@@ -80,7 +78,7 @@ setTimeout(() => {
 						@click="controlledSwiper?.slideTo(index)"
 					>
 						<NuxtImg
-							class="w-[25.8rem] h-[16.8rem] object-cover"
+							class="w-[11.2rem] h-[8.4rem] md:w-[25.8rem] md:h-[16.8rem] object-cover"
 							:src="image.attributes.url"
 							quality="85"
 							width="256"
@@ -90,7 +88,7 @@ setTimeout(() => {
 					</SwiperSlide>
 				</Swiper>
 
-				<div class="p-16">
+				<div class="p-16 hidden md:block" >
 					<IconArrowRightGallery
 						class="cursor-pointer rotate-180"
 						role="button"
@@ -136,6 +134,14 @@ setTimeout(() => {
 .mySwiper2 {
   width: 100%;
   max-width: 1280px;
-  height: 720px;
+  height: 240px;
+}
+
+@screen md {
+	.mySwiper2 {
+		width: 100%;
+		max-width: 1280px;
+		height: 720px;
+	}
 }
 </style>

@@ -5,8 +5,8 @@ const {
 } = useStrapi();
 
 const { data } = await useAsyncData(
-	'camper-rent-page',
-	() => findOne('rent-page', {
+	'camper-buy-page-list',
+	() => findOne('camper-buy-page-list', {
 		populate: ['deep'],
 	}),
 );
@@ -21,15 +21,11 @@ const { data: campers } = await useAsyncData(
 	}),
 );
 
-console.log(campers);
 const pageData = computed((): any => data.value?.data.attributes);
 </script>
 
 <template>
-	<SectionHeroSubpage
-		:title="pageData.title"
-		:subtitle="pageData.subtitle"
-	/>
+	<SectionHeroSubpage	:title="pageData.title"/>
 
 	<section class="section-padding py-80">
 		<div class="container mx-auto">
@@ -40,7 +36,7 @@ const pageData = computed((): any => data.value?.data.attributes);
 				:gearbox="camper.gearbox"
 				:year="camper.year"
 				:title="camper.title"
-				:price-per-day="camper.pricePerDay"
+				:price="camper.price"
 				:places-to-sit="camper.placesToSit"
 				:places-to-sleep="camper.placesToSleep"
 				:preview-description="camper.previewDescription"

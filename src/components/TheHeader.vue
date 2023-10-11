@@ -89,14 +89,10 @@ const checkIfScrollingUpOrDown = () => {
 };
 
 onMounted(() => {
-	const heroSection = document.getElementsByClassName('hero-section');
-
 	window.addEventListener('scroll', () => {
 		checkIfScrolledBelowHeroSection();
 		checkIfScrollingUpOrDown();
 	});
-
-	console.log(heroSection);
 });
 </script>
 

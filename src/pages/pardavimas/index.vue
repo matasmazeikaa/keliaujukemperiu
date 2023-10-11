@@ -29,8 +29,6 @@ const mapPartnersData = computed(() => partners.value.map(({ attributes }) => ({
 	image: attributes.Hero.image,
 	to: `/susikomplektuokite/${attributes.slug}`,
 })));
-
-console.log(partners, 'partners');
 </script>
 
 <template>

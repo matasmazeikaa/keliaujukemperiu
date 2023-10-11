@@ -9,9 +9,17 @@ interface Props {
 	placesToSleep: string;
 	thumbnail: {};
 	slug: string;
+	price: string;
+	isForPurchase: boolean;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+const camperRoute = props.pricePerDay ? `/nuoma/kemperiai/${props.slug}` : `/pardavimas/kemperiai/${props.slug}`;
 </script>
 
 <template>
@@ -33,6 +41,9 @@ defineProps<Props>();
 				<p class="button-style-1 md:text-h4 text-primary-black mb-8">Nuo</p>
 				<p class="text-h4 md:text-h3 text-primary-black mb-16">{{ pricePerDay }}€ / d.</p>
 			</div>
+			<div v-if="price">
+				<p class="text-h4 md:text-h3 text-primary-black mb-16">{{ numberWithCommas(price) }} €</p>
+			</div>
 			<div class="grid grid-cols-2 gap-16 md:flex md:gap-40 mb-24">
 				<CamperSpecification
 					type="year"
@@ -53,7 +64,7 @@ defineProps<Props>();
 			</div>
 			<Button
 				class="w-full"
-				:to="`/nuoma/kemperiai/${slug}`"
+				:to="camperRoute"
 			>
 				Daugiau apie kemperį
 			</Button>

@@ -15,9 +15,9 @@ defineProps<Props>();
 </script>
 
 <template>
-	<section class="section-padding mt-80 mb-160">
+	<section class="section-padding my-64 md:mt-80 md:mb-160">
 		<div class="container mx-auto">
-			<h2 class="text-h2 mb-64">{{ title }}</h2>
+			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">Specifikacijos</h2>
 			<div class="specification-grid">
 				<CamperSpecification
 					v-if="year"
@@ -73,10 +73,18 @@ defineProps<Props>();
 </template>
 
 <style scoped>
+@screen md {
+	.specification-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 302px)) !important;
+		grid-column-gap: 24px;
+		grid-row-gap: 64px;
+	}
+}
+
 .specification-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 302px));
-	grid-column-gap: 24px;
-	grid-row-gap: 64px;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
 }
 </style>

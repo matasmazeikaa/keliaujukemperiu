@@ -21,7 +21,6 @@ const { data: campers } = await useAsyncData(
 	}),
 );
 
-console.log(campers);
 const pageData = computed((): any => data.value?.data.attributes);
 </script>
 

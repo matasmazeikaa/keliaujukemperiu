@@ -12,8 +12,6 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-
-console.log(props, 'find props');
 </script>
 
 <template>

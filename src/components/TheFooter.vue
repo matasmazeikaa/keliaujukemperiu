@@ -3,8 +3,8 @@ const FOOTER = {
 	aboutSubtitle: 'Kelionė su kemperiu ar karavanu skirta žmonėms, kurie nori pažinti pasaulį nepriklausomai.',
 	servicesLinks: [
 		{
-			title: 'Išsirinkite',
-			link: '/issirinkite',
+			title: 'Prekyba',
+			link: '/pardavimas',
 		},
 		{
 			title: 'Susikomplektuokite',
@@ -18,25 +18,21 @@ const FOOTER = {
 	companyLinks: [
 		{
 			title: 'Kemperiai',
-			link: '/kemperiai',
+			link: '/nuoma/kemperiai',
 		},
 		{
 			title: 'Karavanai',
-			link: '/karavanai',
-		},
-		{
-			title: 'Kainos',
-			link: '/kainos',
-		},
-		{
-			title: 'Nuomos sąlygos',
-			link: '/nuomos-salygos',
+			link: '/nuoma/karavanai',
 		},
 	],
 	otherLinks: [
 		{
-			title: 'Įranga ir servisas',
-			link: '/iranga-ir-servisas',
+			title: 'Įranga kemperiams',
+			link: '/iranga-kemperiams',
+		},
+		{
+			title: 'Servisas',
+			link: '/servisas',
 		},
 		{
 			title: 'Apie mus',

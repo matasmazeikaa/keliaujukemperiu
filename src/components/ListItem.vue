@@ -10,6 +10,7 @@ defineProps<Props>();
 <template>
 	<div class="flex items-center gap-8">
 		<IconCheckmark
+			class="min-w-[1.6rem] min-h-16"
 			:class="{ 'text-primary-blue': isBlue }"
 		/>
 		<p class="button-style-1 text-inherit">{{ text }}</p>

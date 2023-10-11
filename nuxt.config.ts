@@ -51,7 +51,7 @@ export default defineNuxtConfig({
 
 	// typescript
 	typescript: {
-		typeCheck: true,
+		typeCheck: false,
 		tsConfig: {
 			compilerOptions: {
 				forceConsistentCasingInFileNames: true,

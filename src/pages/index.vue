@@ -8,8 +8,6 @@ const {
 definePageMeta({
 	layout: 'dark-header',
 });
-
-console.log(hero.value, 'hero section');
 </script>
 
 <template>

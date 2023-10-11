@@ -9,8 +9,6 @@ const { data } = await useAsyncData(
 );
 
 const pageData = computed((): any => data.value?.data.attributes);
-
-console.log(pageData, 'page data');
 </script>
 
 <template>
