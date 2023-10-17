@@ -59,7 +59,7 @@ const setControlledSwiper = (swiper: any) => {
 					>
 						<div class="max-w-[72rem] mx-auto">
 							<h4 class="text-body-2 md:text-h4 text-black mb-16 md:mb-32">{{ testimonial.text }}</h4>
-							<p class="text-body-2 md:button-style-1 mb-32 md:mb-54 text-black">{{ testimonial.fullName }}</p>
+							<p class="text-body-2 md:button-style-1 mb-32 md:mb-54 !text-black">{{ testimonial.fullName }}</p>
 						</div>
 					</SwiperSlide>
 				</Swiper>

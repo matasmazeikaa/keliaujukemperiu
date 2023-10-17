@@ -96,7 +96,7 @@ defineProps<Props>();
 					preload
 					class='rounded-[4rem] w-full'
 					:src="image?.data?.attributes?.hash"
-					alt="about us image"
+					:alt="image?.data?.attributes?.alternateText"
 				/>
 
 				<template v-if="nameOverlay?.title">

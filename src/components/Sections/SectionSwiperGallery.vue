@@ -44,9 +44,11 @@ setTimeout(() => {
 				>
 					<NuxtImg
 						:src="image.attributes.url"
+						:alt="image.attributes.alternateText"
 						class="md:w-[128rem] md:h-[72rem] object-cover"
 						width="1280"
 						height="720"
+						format="webp"
 						quality="85"
 					/>
 				</SwiperSlide>

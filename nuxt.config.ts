@@ -1,9 +1,9 @@
 const APP_META = {
-	title: 'Owl & Co',
-	description: 'Discover personalised property management and investment services in East London and Essex with Owl & Co, your trusted family-owned letting agency.',
+	title: 'Keliaujukemperiu',
+	description: 'Keliaujukemperiu kemperiu pardavimas seimos verslas',
 	favicon: '/favicon.ico',
-	url: 'https://myapp.com',
-	language: 'en',
+	url: 'https://keliaujukemperiu.lt',
+	language: 'lt',
 };
 
 export default defineNuxtConfig({
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
 	},
 
 	strapi: {
-		url: process.env.STRAPI_URL || 'http://127.0.0.1:1337',
+		url: process.env.STRAPI_URL || 'http://127.0.0.1:1338',
 	},
 
 	// typescript

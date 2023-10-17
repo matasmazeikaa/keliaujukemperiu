@@ -15,16 +15,21 @@ defineProps<Props>();
 			<div class="mb-40 md:mb-0 self-center justify-self-center md:justify-self-end">
 				<NuxtImg
 					:src="topImage.data.attributes.url"
+					:alt="topImage.data.attributes.alternateText"
 					width="480"
 					height="320"
 					:quality="85"
+					format="webp"
 					class="object-cover mb-24"
 				/>
 				<NuxtImg
+					v-if="bottomImage?.data?.attributes"
 					:src="bottomImage.data.attributes.url"
+					:alt="bottomImage.data.attributes.alternateText"
 					width="480"
 					height="240"
 					:quality="85"
+					format="webp"
 					class="object-cover"
 				/>
 			</div>

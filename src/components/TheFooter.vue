@@ -61,12 +61,14 @@ const FOOTER = {
 						<a
 							href="https://www.facebook.com/groups/keliaujukemperiu"
 							target="_blank"
+							aria-label="Facebook"
 						>
 							<IconFacebook />
 						</a>
 						<a
 							href="https://www.facebook.com/groups/keliaujukemperiu"
 							target="_blank"
+							aria-label="Instagram"
 						>
 							<IconInstagram />
 						</a>

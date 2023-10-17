@@ -6,7 +6,7 @@ const {
 
 const { data } = await useAsyncData(
 	'camper-rent-page',
-	() => findOne('rent-page', {
+	() => findOne('camper-rent-page', {
 		populate: ['deep'],
 	}),
 );
@@ -17,6 +17,7 @@ const { data: campers } = await useAsyncData(
 		populate: 'deep',
 		filters: {
 			isForSale: true,
+			isCaravan: false,
 		},
 	}),
 );

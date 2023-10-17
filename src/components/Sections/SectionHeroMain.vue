@@ -23,6 +23,8 @@ const props = defineProps<Props>();
 const hasValues = computed(() => props.values && props.values.length > 0);
 
 const image = computed(() => props.image);
+
+console.log(image);
 </script>
 
 <template>
@@ -35,14 +37,20 @@ const image = computed(() => props.image);
 				class="hero-image"
 				sizes="xxl:100vw xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
 				:src="image.data.attributes.url"
+				:alt="image.data.attributes.alternativeText"
+				width="1980"
+				height="1080"
 				:quality="85"
+				format="webp"
+				preload
 			/>
 			<div class="background-drop"/>
 			<div class="content container section-padding mx-auto">
 				<div class="max-w-[40rem] md:max-w-[64rem] mx-auto md:mx-0 w-full text-white">
 					<NuxtImg
-						v-if="icon"
+						v-if="icon?.data?.attributes"
 						:src="icon.data.attributes.url"
+						:alt="icon.data.attributes.alternateText"
 						:quality="85"
 						:width="icon.data.attributes.width"
 						:height="icon.data.attributes.height"
@@ -58,6 +66,7 @@ const image = computed(() => props.image);
 							v-for="item in props.values"
 							:key="item"
 							:text="item.text"
+							is-orange
 						/>
 					</div>
 					<div class="flex flex-wrap gap-16">
@@ -73,7 +82,7 @@ const image = computed(() => props.image);
 					</div>
 				</div>
 			</div>
-			<PartnersList class="mt-24 partners-list" />
+			<PartnersList class="!mt-24 partners-list" />
 		</div>
 	</section>
 </template>

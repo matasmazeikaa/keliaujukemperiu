@@ -29,8 +29,10 @@ const props = defineProps<Props>();
 				>
 					<NuxtImg
 						:src="`${item.icon.data.attributes.hash}${item.icon.data.attributes.ext}`"
+						:alt="item.icon.data.attributes.alternativeText"
 						width="40"
 						height="40"
+						format="svg"
 						class="mb-16"
 					/>
 					<p class="button-style-1 text-white mb-8">{{ item.title }}</p>

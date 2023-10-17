@@ -18,6 +18,7 @@ const props = defineProps<Props>();
 const date = dayjs(props.createdAt).format('MMMM D, YYYY');
 
 const to = `/naujienos/${props.slug}`;
+
 </script>
 
 <template>
@@ -29,7 +30,9 @@ const to = `/naujienos/${props.slug}`;
 			class="hero-image"
 			width="400"
 			:src="thumbnail.data.attributes.url"
+			:alt="thumbnail.data.attributes.alternateText"
 			:quality="85"
+			format="webp"
 		/>
 		<img class="mb-16 md:mb-32"/>
 		<div class="mb-12 text-label flex gap-4 items-center">

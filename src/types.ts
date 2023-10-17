@@ -134,7 +134,6 @@ export const COMPONENT_CMS_MAP: any = {
 	'shared.section-text-left-image-right': 'SectionTextLeftImageRight',
 	'shared.section-text-right-image-left': 'SectionTextRightImageLeft',
 	'shared.section-steps-with-background': 'SectionStepsWithBackground',
-	'shared.section-with-properties': 'SectionWithProperties',
 	'shared.section-yellow-background': 'SectionYellowBackground',
 	'shared.section-steps': 'SectionSteps',
 	'sections.hero-travel-guarantee-section': 'SectionTravelGuaranties',

@@ -43,7 +43,9 @@ definePageMeta({
 				>
 					<NuxtImg
 						:src="image.attributes.url"
+						:alt="image.attributes.alternateText"
 						:quality="85"
+						format="webp"
 						:width="image.attributes.width"
 						:height="image.attributes.height"
 					/>

@@ -17,6 +17,7 @@ const { data: campers } = await useAsyncData(
 		populate: 'deep',
 		filters: {
 			isForSale: true,
+			isCaravan: false,
 		},
 	}),
 );

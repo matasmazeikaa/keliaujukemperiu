@@ -115,7 +115,7 @@ onMounted(() => {
 						aria-label="Home"
 					>
 						<HeaderLogoWhite
-							v-if="!isWhite"
+							v-if="!isWhite && !isMobileMenuOpen"
 							class="w-full h-full"
 						/>
 						<HeaderLogoDark

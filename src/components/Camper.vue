@@ -27,9 +27,11 @@ const camperRoute = props.pricePerDay ? `/nuoma/kemperiai/${props.slug}` : `/par
 		<NuxtImg
 			class="hero-image max-w-[60rem] w-full"
 			:src="thumbnail.data.attributes.url"
+			:alt="thumbnail.data.attributes.alternativeText"
 			:quality="85"
 			width="600"
 			height="450"
+			format="webp"
 		/>
 		<div>
 			<h3 class="text-h4 md:text-h3 mb-8">{{ title }}</h3>

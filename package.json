@@ -40,7 +40,7 @@
     "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "@pinia/nuxt": "^0.4.9",
     "@strapi/strapi": "^4.10.1",
-    "@unlighthouse/nuxt": "^0.4.10",
+    "@unlighthouse/nuxt": "^0.10.0",
     "@vueuse/nuxt": "^10.1.0",
     "autoprefixer": "^10.4.14",
     "consola": "^3.1.0",

@@ -27,7 +27,9 @@ const props = defineProps<Props>();
 						width="624"
 						height="400"
 						class="image"
+						format="webp"
 						:src="category.image.data.attributes.url"
+						:alt="category.image.data.attributes.alternateText"
 					/>
 					<div class="image-overlay" />
 					<div class="relative z-10">
