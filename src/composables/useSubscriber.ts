@@ -9,36 +9,19 @@ export const useSubscriber = () => {
 	const hasSubmited = ref(false);
 	const alreadySubscribed = ref(DEFAULT_ALREADY_SUBSCRIBED);
 
-	const {
-		find,
-		create,
-	} = useStrapi<ISubscriber>();
-
-	const fetchSubscribers = async () => {
-		const data = await find('subscribers', {
-			pagination: {
-				start: 1,
-				limit: 1,
-			},
-		});
-
-		alreadySubscribed.value = (data.meta.pagination as PaginationByPage).total + DEFAULT_ALREADY_SUBSCRIBED;
-
-		return data;
-	};
+	const { create } = useStrapi<ISubscriber>();
 
 	const submitForm = async (data: any) => {
 		isLoading.value = true;
 
-		try {
-			await create('subscribers', {
-				...data,
-				...(data.valuationType ? {
-					valuationType: data.valuationType.join(', '),
-				} : {}),
-			});
+		console.log(data);
 
-			await fetchSubscribers();
+		try {
+			await create('create-mail', {
+				name: data.name,
+				email: data.email,
+				message: data.message,
+			});
 
 			hasSubmited.value = true;
 		} catch (error) {
@@ -48,25 +31,10 @@ export const useSubscriber = () => {
 		}
 	};
 
-	const { data } = useAsyncData(
-		'subscribers',
-		() => find('subscribers', {
-			pagination: {
-				start: 1,
-				limit: 1,
-			},
-		}),
-	);
-
-	if (data.value) {
-		alreadySubscribed.value = ((data.value?.meta?.pagination as PaginationByPage).total ?? 1) + DEFAULT_ALREADY_SUBSCRIBED;
-	}
-
 	return {
 		alreadySubscribed,
 		isLoading,
 		hasSubmited,
-		fetchSubscribers,
 		submitForm,
 	};
 };

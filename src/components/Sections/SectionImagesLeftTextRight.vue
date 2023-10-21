@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import MarkdownIt from 'markdown-it';
+
 interface Props {
 	title: string;
 	topImage: any;
@@ -7,10 +9,12 @@ interface Props {
 }
 
 defineProps<Props>();
+
+const markdown = new MarkdownIt();
 </script>
 
 <template>
-	<section class="section-padding pt-20 pb-40 md:py-160">
+	<section class="section-padding mt-20 mb-40 md:my-160">
 		<div class="container mx-auto md:grid grid-cols-1 md:grid-cols-2 gap-80">
 			<div class="mb-40 md:mb-0 self-center justify-self-center md:justify-self-end">
 				<NuxtImg
@@ -36,9 +40,9 @@ defineProps<Props>();
 
 			<div class="order-0">
 				<h2 class="text-h4 md:text-h2 text-primary-black mb-16 md:mb-24">{{ title }}</h2>
-				<p
+				<div
 					class="text-body-2 md:text-body-1 text-primary-black whitespace-break-spaces"
-					v-html="text"
+					v-html="markdown.render(text)"
 				/>
 			</div>
 		</div>

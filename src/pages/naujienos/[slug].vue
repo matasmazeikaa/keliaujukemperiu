@@ -34,6 +34,17 @@ const date = dayjs(blog.value.createdAt).format('MMMM D, YYYY');
 const promotedBlogs = computed(() => blog?.value?.promotedBlogs?.data ?? []);
 
 const markdown = new MarkdownIt();
+
+useHead({
+		title: blog.value.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: blog.value.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>
@@ -63,7 +74,7 @@ const markdown = new MarkdownIt();
 		<div class="container mx-auto">
 			<h2 class="text-h2 text-primary-black text-center">Daugiau straipsniu</h2>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 py-64">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 my-64">
 				<BlogCard
 					v-for="{
 						attributes: {

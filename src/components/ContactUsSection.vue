@@ -21,9 +21,9 @@ const {
 
 <template>
 	<div class="section-padding ">
-		<div class="mx-auto max-w-screen-xl mb-40 md:mb-160 xl:mb-200 pt-20 md:pt-80 grid grid-cols-1 lg:grid-cols-2 gap-80 md:gap-40 lg:gap-80">
+		<div class="mx-auto max-w-screen-xl mb-40 md:mb-160 xl:mb-200 mt-20 md:pt-80 grid grid-cols-1 lg:grid-cols-2 gap-80 md:gap-40 lg:gap-80">
 			<div>
-				<h2 class="mb-24 md:mb-40 text-h4 md:text-h2 text-black">{{ hasSubmited ?  "Thank you for your message, we will contact you shortly." : "Išsiųskite žinutę mums"}}</h2>
+				<h2 class="mb-24 md:mb-40 text-h4 md:text-h2 text-black">{{ hasSubmited ?  "Ačiū! Netrūkus su jumis susisieksime." : "Išsiųskite užklausą "}}</h2>
 				<FormKit
 					v-if="!hasSubmited"
 					type="form"
@@ -58,7 +58,7 @@ const {
 					<FormKit
 						outer-class="!w-full"
 						type="text"
-						name="phone"
+						name="message"
 						label="Žinutė"
 						placeholder="Kokia informacija domina Jus?"
 						validation="length:3,1024"
@@ -75,7 +75,7 @@ const {
 				<h1
 					class="text-h4 md:text-h3 text-white mb-16 md:mb-40"
 				>
-					Mūsų kontaktai
+					Kontaktai
 				</h1>
 				<div class="grid grid-cols-1 gap-y-24 lg:grid-cols-2 md:gap-x-80 md:gap-y-40">
 					<div>
@@ -94,7 +94,7 @@ const {
 					</div>
 					<div>
 						<IconPhone class="mb-16"/>
-						<p class="mb-8 text-button button-style-1">Telefono numeris</p>
+						<p class="mb-8 text-button button-style-1">Tel. numeris</p>
 						<p class="text-body-2 text-white opacity-75">{{ phoneNumber || '+370 618 09966' }}</p>
 					</div>
 					<div>

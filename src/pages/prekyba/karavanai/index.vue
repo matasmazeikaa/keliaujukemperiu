@@ -5,8 +5,8 @@ const {
 } = useStrapi();
 
 const { data } = await useAsyncData(
-	'camper-buy-page-list',
-	() => findOne('camper-buy-page-list', {
+	'caravan-buy-page-list',
+	() => findOne('caravan-buy-page-list', {
 		populate: ['deep'],
 	}),
 );
@@ -17,12 +17,23 @@ const { data: campers } = await useAsyncData(
 		populate: 'deep',
 		filters: {
 			isForSale: true,
-			isCaravan: false,
+			isCaravan: true,
 		},
 	}),
 );
 
 const pageData = computed((): any => data.value?.data.attributes);
+
+useHead({
+		title: pageData.value.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: pageData.value.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>

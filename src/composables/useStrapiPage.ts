@@ -6,7 +6,7 @@ export const useStrapiPage = async (page: string) => {
 	const { findOne } = useStrapi();
 
 	const { data } = await useAsyncData(
-		`${page}-page`,
+		'page',
 		() => findOne<{hero: IHero, sections: ISection[], seo: ISeo}>(`${page}-page`, {
 			populate: ['deep,100'],
 		}),
@@ -19,12 +19,12 @@ export const useStrapiPage = async (page: string) => {
 	const seo = computed(() => pageData.value?.seo);
 
 	useHead({
-		title: seo.value?.metaTitle,
+		title: seo?.metaTitle,
 		meta: [
 			{
 				hid: 'description',
 				name: 'description',
-				content: seo.value?.metaDescription,
+				content: seo?.metaDescription,
 			},
 		],
 	});

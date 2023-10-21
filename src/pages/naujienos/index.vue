@@ -8,7 +8,28 @@ const DEFAULT_PAGINATION = {
 	pageSize: 9,
 };
 
-const { find } = useStrapi();
+const { find, findOne} = useStrapi();
+
+const { data } = await useAsyncData(
+	'news-page',
+	() => findOne('news-page', {
+		populate: ['deep'],
+	}),
+);
+
+const pageData = computed((): any => data.value?.data.attributes);
+
+useHead({
+		title: pageData.value?.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: pageData.value?.seo?.metaDescription,
+			},
+	],
+});
+
 
 const propertySearch = ref('');
 const propertySort = ref('asc');
@@ -28,7 +49,6 @@ const { data: blogs } = await useAsyncData(
 const {
 	currentPage,
 	currentPageSize,
-	pageCount,
 	next: nextPage,
 	prev: prevPage,
 } = useOffsetPagination({
@@ -70,14 +90,6 @@ const fetchProperties = async () => {
 
 totalProperties.value = (blogs.value?.meta?.pagination as PaginationByPage)?.total ?? 1;
 
-const handlePropertySearch = async (value: string) => {
-	propertySearch.value = value;
-};
-
-const handlePropertySort = (value: string) => {
-	propertySort.value = value;
-};
-
 watch(propertySearch, () => {
 	currentPage.value = 1;
 
@@ -94,10 +106,10 @@ watch(currentPage, () => {
 </script>
 
 <template>
-	<SectionHeroSubpage title="Naujienos" />
+	<SectionHeroSubpage :title="pageData.title" />
 	<section class="section-padding">
 		<div class="container mx-auto">
-			<div class="place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 py-20 md:py-64">
+			<div class="place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 py-20 md:my-64">
 				<BlogCard
 					v-for="{
 						attributes: {

@@ -29,6 +29,17 @@ const mapPartnersData = computed(() => partners.value.map(({ attributes }) => ({
 	image: attributes.Hero.image,
 	to: `/susikomplektuokite/${attributes.slug}`,
 })));
+
+useHead({
+		title: pageData.value.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: pageData.value.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>
@@ -39,7 +50,7 @@ const mapPartnersData = computed(() => partners.value.map(({ attributes }) => ({
 
 	<SectionListImages
 		v-bind="pageData.aboutSellCamperSection"
-		to="/pardavimas/kemperiai"
+		to="/prekyba/kemperiai"
 	/>
 
 	<SectionListImages

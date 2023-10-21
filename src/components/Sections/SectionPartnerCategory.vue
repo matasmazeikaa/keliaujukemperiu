@@ -17,9 +17,9 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-	<div class="section-padding py-40 md:my-160">
+	<div class="section-padding my-40 md:my-160">
 		<div class="container mx-auto">
-			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">Išsirinkite įrangą iš mūsų partnerių</h2>
+			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">Susikomplektuokite kemperį ar karavaną</h2>
 			<div class="flex flex-wrap justify-center gap-32">
 				<div
 					v-for="category in pageCategory"
@@ -55,7 +55,7 @@ const props = defineProps<Props>();
 								:target="isTargeBlank ? '_blank' : '_self'"
 								:to="category.to"
 							>
-								Gamintojo puslapis
+								Sužinoti daugiau
 							</LinkButton>
 						</div>
 					</div>

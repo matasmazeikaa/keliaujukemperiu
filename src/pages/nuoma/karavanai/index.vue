@@ -23,6 +23,17 @@ const { data: campers } = await useAsyncData(
 );
 
 const pageData = computed((): any => data.value?.data.attributes);
+
+useHead({
+		title: pageData.value?.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: pageData.value?.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>

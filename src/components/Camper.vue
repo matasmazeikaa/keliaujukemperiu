@@ -19,7 +19,7 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-const camperRoute = props.pricePerDay ? `/nuoma/kemperiai/${props.slug}` : `/pardavimas/kemperiai/${props.slug}`;
+const camperRoute = props.pricePerDay ? `/nuoma/kemperiai/${props.slug}` : `/prekyba/kemperiai/${props.slug}`;
 </script>
 
 <template>
@@ -68,7 +68,7 @@ const camperRoute = props.pricePerDay ? `/nuoma/kemperiai/${props.slug}` : `/par
 				class="w-full"
 				:to="camperRoute"
 			>
-				Daugiau apie kemperį
+				Sužinoti daugiau
 			</Button>
 		</div>
 	</div>

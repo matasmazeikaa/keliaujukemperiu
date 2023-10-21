@@ -22,7 +22,7 @@ const setControlledSwiper = (swiper: any) => {
 <template>
 	<div class="relative section-padding my-160">
 		<div class="container mx-auto text-center text-white relative z-100">
-			<h2 class="text-h4 md:text-h2text-black mb-24 md:mb-64">{{ title }}</h2>
+			<h2 class="text-h4 md:text-h2 text-black mb-24 md:mb-64">{{ title }}</h2>
 			<QuotesIcon class="mx-auto mb-16 md:mb-32" />
 			<div
 				class="relative text-center"

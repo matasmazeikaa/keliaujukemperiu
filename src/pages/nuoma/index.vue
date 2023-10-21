@@ -10,6 +10,16 @@ const { data } = await useAsyncData(
 
 const pageData = computed((): any => data.value?.data.attributes);
 
+useHead({
+		title: pageData.value?.seo.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: pageData.value?.seo.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>
@@ -22,8 +32,6 @@ const pageData = computed((): any => data.value?.data.attributes);
 		v-bind="pageData.chooseCamperSection"
 		to="/nuoma/kemperiai"
 	/>
-
-	<SectionPartners />
 
 	<SectionListImages
 		v-bind="pageData.chooseCaravanSection"

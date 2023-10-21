@@ -1,5 +1,5 @@
 <template>
-	<section class="section-padding pb-40 md:pb-160">
+	<section class="section-padding mb-40 md:pb-160">
 		<div class="container mx-auto text-center">
 			<h2 class="text-h4 md:text-h2 mb-24 md:mb-64">Kaip mus rasti?</h2>
 			<iframe

@@ -9,14 +9,23 @@ const { data } = await useAsyncData(
 );
 
 const pageData = computed((): any => data.value?.data.attributes);
+
+useHead({
+		title: pageData.value.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: pageData.value.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>
 	<SectionHeroSubpage :title="pageData.title" />
 
 	<SectionImagesLeftTextRight v-bind="pageData.aboutServiceSection" />
-
-	<SectionPartners />
 
 	<SectionEnumerationList
 		v-bind="pageData.providedServicesSection"

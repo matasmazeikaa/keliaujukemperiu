@@ -4,7 +4,7 @@ const FOOTER = {
 	servicesLinks: [
 		{
 			title: 'Prekyba',
-			link: '/pardavimas',
+			link: '/prekyba',
 		},
 		{
 			title: 'Susikomplektuokite',
@@ -28,7 +28,7 @@ const FOOTER = {
 	otherLinks: [
 		{
 			title: 'Įranga kemperiams',
-			link: '/iranga-kemperiams',
+			link: '/iranga',
 		},
 		{
 			title: 'Servisas',
@@ -56,7 +56,7 @@ const FOOTER = {
 			<div class="footer-top-part">
 				<div class="md:max-w-[26rem]">
 					<LogoWhite class="mb-24"/>
-					<p class="text-body-2 text-white">Kelionė su kemperiu ar karavanu skirta žmonėms, kurie nori pažinti pasaulį nepriklausomai.</p>
+					<p class="text-body-2 text-white">Komfortą vertinantiems keliautojams</p>
 					<div class="flex gap-24 items-center mt-40 md:hidden">
 						<a
 							href="https://www.facebook.com/groups/keliaujukemperiu"

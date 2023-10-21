@@ -86,7 +86,6 @@ export default defineNuxtConfig({
 		'@unlighthouse/nuxt',
 		'@vueuse/nuxt',
 		'nuxt-headlessui',
-		'@nuxt/content',
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/strapi',
 		'nuxt-swiper',

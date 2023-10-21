@@ -20,7 +20,7 @@ const isScrollingDown = ref(false);
 const props = withDefaults(defineProps<Props>(), {
 	items: () => [
 		{
-			to: '/pardavimas',
+			to: '/prekyba',
 			title: 'Prekyba',
 		},
 		{
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
 			title: 'Nuoma',
 		},
 		{
-			to: '/iranga-kemperiams',
+			to: '/iranga',
 			title: 'Įranga kemperiams',
 		},
 		{
@@ -76,7 +76,12 @@ const checkIfScrolledBelowHeroSection = () => {
 
 const checkIfScrollingUpOrDown = () => {
 	const scrollPosition = window.scrollY;
-	const header = document.getElementsByClassName('header')[0];
+
+	if (scrollPosition < (headerRef.value?.offsetHeight || 0)) {
+		isScrollingDown.value = false;
+
+		return;
+	}
 
 	if (scrollPosition > currentScrollPosition.value) {
 		isScrollingDown.value = true;
@@ -127,7 +132,6 @@ onMounted(() => {
 					<div class="flex items-center gap-32">
 						<ul
 							class="gap-32 hidden items-center lg:flex"
-							@mouseleave="hoveredNavItem = null"
 						>
 							<li
 								v-for="(item, index) in items"
@@ -136,13 +140,12 @@ onMounted(() => {
 							>
 								<NuxtLink
 									:to="item.to"
-									class="text-body-2 cursor-pointer"
+									class="text-body-2 cursor-pointer hover:opacity-75 transition-opacity"
 									:class="{
 										'text-white': !isWhite,
 										'text-primary-black': isWhite,
 										'is-blur-hovered': hoveredNavItem !== index && hoveredNavItem !== null,
 									}"
-									@mouseover="hoveredNavItem = index"
 								>
 									{{ item.title }}
 								</NuxtLink>

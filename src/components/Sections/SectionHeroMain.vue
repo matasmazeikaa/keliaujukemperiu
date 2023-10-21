@@ -23,8 +23,6 @@ const props = defineProps<Props>();
 const hasValues = computed(() => props.values && props.values.length > 0);
 
 const image = computed(() => props.image);
-
-console.log(image);
 </script>
 
 <template>

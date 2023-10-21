@@ -2,7 +2,6 @@
 const {
 	hero,
 	sections,
-	pageData,
 } = await useStrapiPage('home');
 
 definePageMeta({

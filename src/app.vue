@@ -1,6 +1,6 @@
 <template>
 	<Html
-		lang="en"
+		lang="lt"
 		class="h-full"
 	>
 		<Body class="h-full">
@@ -13,18 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-onMounted(() => {
-	AOS.init({
-		duration: 1000,
-		once: true,
-	});
-});
-
 useHead({
-	title: 'shit',
+	titleTemplate: '%s | Keliauju kemperiu',
 	link: [
 		{
 			rel: 'apple-touch-icon',
@@ -54,7 +44,6 @@ useHead({
 			href: '/safari-pinned-tab.svg',
 			color: '#000000',
 		},
-
 	],
 	meta: [
 		{

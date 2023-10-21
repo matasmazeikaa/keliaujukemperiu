@@ -26,6 +26,17 @@ const partner = computed(() => partners?.value?.data[0].attributes || {
 definePageMeta({
 	layout: 'dark-header',
 });
+
+useHead({
+		title: partner.value.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: partner.value.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>

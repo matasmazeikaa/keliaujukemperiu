@@ -23,6 +23,17 @@ const camper = computed(() => campers?.value?.data[0].attributes || {
 		data: [],
 	},
 });
+
+useHead({
+		title: camper.value.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: camper.value.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>

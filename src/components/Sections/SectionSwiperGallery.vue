@@ -45,9 +45,9 @@ setTimeout(() => {
 					<NuxtImg
 						:src="image.attributes.url"
 						:alt="image.attributes.alternateText"
-						class="md:w-[128rem] md:h-[72rem] object-cover"
-						width="1280"
-						height="720"
+						class="md:w-[72rem] md:h-[52rem] object-cover"
+						width="720"
+						height="520"
 						format="webp"
 						quality="85"
 					/>
@@ -135,15 +135,15 @@ setTimeout(() => {
 
 .mySwiper2 {
   width: 100%;
-  max-width: 1280px;
+  max-width: 720px;
   height: 240px;
 }
 
 @screen md {
 	.mySwiper2 {
 		width: 100%;
-		max-width: 1280px;
-		height: 720px;
+		max-width: 720px;
+		height: 520px;
 	}
 }
 </style>

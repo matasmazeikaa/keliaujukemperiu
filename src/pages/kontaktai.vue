@@ -2,15 +2,28 @@
 const { findOne } = useStrapi();
 
 const { data } = await useAsyncData(
-	'contactPageHeroSection',
-	() => findOne<{section: ISection[], title: string, email: string, phoneNumber: string, address: string, work: { hours: string, days: string }}>('contact-page', {
-		populate: ['work.*'],
+	'contact-us-page',
+	() => findOne('contact-us-page', {
+		populate: ['deep'],
 	}),
 );
+
+const pageData = computed((): any => data.value?.data.attributes);
+
+useHead({
+		title: pageData.value.seo?.metaTitle,
+		meta: [
+			{
+				hid: 'description',
+				name: 'description',
+				content: pageData.value.seo?.metaDescription,
+			},
+	],
+});
 </script>
 
 <template>
-	<SectionHeroSubpage title="Susisiekite su mumis" />
+	<SectionHeroSubpage :title="pageData.title" />
 
 	<ContactUsSection />
 
