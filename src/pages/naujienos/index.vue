@@ -8,7 +8,10 @@ const DEFAULT_PAGINATION = {
 	pageSize: 9,
 };
 
-const { find, findOne} = useStrapi();
+const {
+	find,
+	findOne,
+} = useStrapi();
 
 const { data } = await useAsyncData(
 	'news-page',
@@ -20,16 +23,15 @@ const { data } = await useAsyncData(
 const pageData = computed((): any => data.value?.data.attributes);
 
 useHead({
-		title: pageData.value?.seo?.metaTitle,
-		meta: [
-			{
-				hid: 'description',
-				name: 'description',
-				content: pageData.value?.seo?.metaDescription,
-			},
+	title: pageData.value?.seo?.metaTitle,
+	meta: [
+		{
+			hid: 'description',
+			name: 'description',
+			content: pageData.value?.seo?.metaDescription,
+		},
 	],
 });
-
 
 const propertySearch = ref('');
 const propertySort = ref('asc');

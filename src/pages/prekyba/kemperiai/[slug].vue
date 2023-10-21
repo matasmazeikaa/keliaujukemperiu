@@ -5,7 +5,7 @@ const route = useRoute();
 const { slug } = route.params;
 
 const { data: campers } = await useAsyncData(
-	'campers',
+	'campers-campers-sale',
 	() => find('campers', {
 		populate: 'deep',
 		filters: {
@@ -25,13 +25,13 @@ const camper = computed(() => campers?.value?.data[0].attributes || {
 });
 
 useHead({
-		title: camper.value.seo?.metaTitle,
-		meta: [
-			{
-				hid: 'description',
-				name: 'description',
-				content: camper.value.seo?.metaDescription,
-			},
+	title: camper.value.seo?.metaTitle,
+	meta: [
+		{
+			hid: 'description',
+			name: 'description',
+			content: camper.value.seo?.metaDescription,
+		},
 	],
 });
 </script>

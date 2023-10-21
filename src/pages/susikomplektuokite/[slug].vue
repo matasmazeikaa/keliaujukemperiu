@@ -28,13 +28,13 @@ definePageMeta({
 });
 
 useHead({
-		title: partner.value.seo?.metaTitle,
-		meta: [
-			{
-				hid: 'description',
-				name: 'description',
-				content: partner.value.seo?.metaDescription,
-			},
+	title: partner.value.seo?.metaTitle,
+	meta: [
+		{
+			hid: 'description',
+			name: 'description',
+			content: partner.value.seo?.metaDescription,
+		},
 	],
 });
 </script>

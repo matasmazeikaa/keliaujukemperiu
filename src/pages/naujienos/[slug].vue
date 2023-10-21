@@ -36,13 +36,13 @@ const promotedBlogs = computed(() => blog?.value?.promotedBlogs?.data ?? []);
 const markdown = new MarkdownIt();
 
 useHead({
-		title: blog.value.seo?.metaTitle,
-		meta: [
-			{
-				hid: 'description',
-				name: 'description',
-				content: blog.value.seo?.metaDescription,
-			},
+	title: blog.value.seo?.metaTitle,
+	meta: [
+		{
+			hid: 'description',
+			name: 'description',
+			content: blog.value.seo?.metaDescription,
+		},
 	],
 });
 </script>
