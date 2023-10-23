@@ -19,12 +19,12 @@ export const useStrapiPage = async (page: string) => {
 	const seo = computed(() => pageData.value?.seo);
 
 	useHead({
-		title: seo?.metaTitle,
+		title: seo?.value?.metaTitle,
 		meta: [
 			{
 				hid: 'description',
 				name: 'description',
-				content: seo?.metaDescription,
+				content: seo?.value?.metaDescription,
 			},
 		],
 	});
