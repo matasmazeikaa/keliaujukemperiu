@@ -10,6 +10,7 @@ const { data: campers } = await useAsyncData(
 		populate: 'deep',
 		filters: {
 			isForRent: true,
+			isCaravan: false,
 			slug,
 		},
 	}),

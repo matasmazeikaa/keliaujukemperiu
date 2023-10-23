@@ -12,7 +12,7 @@ const { data } = await useAsyncData(
 );
 
 const { data: campers } = await useAsyncData(
-	'campers',
+	'camper-rent-page-list-real',
 	() => find('campers', {
 		populate: 'deep',
 		filters: {
