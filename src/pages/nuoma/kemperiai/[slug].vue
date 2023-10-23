@@ -58,7 +58,11 @@ useHead({
 		:fridge-capacity="camper.fridgeCapacity"
 	/>
 
-	<SectionCamperComplectation :item-list="camper.complectation" />
+	<SectionCamperComplectation
+		:item-list="camper.complectation"
+		:is-for-rent="camper.isForRent"
+		:complectation-for-rent="camper.complectationForRent"
+	/>
 
 	<SectionCamperPrice
 		:prices="[

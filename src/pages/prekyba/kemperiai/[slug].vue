@@ -9,8 +9,6 @@ const { data: campers } = await useAsyncData(
 	() => find('campers', {
 		populate: 'deep',
 		filters: {
-			isForSale: true,
-			isCaravan: false,
 			slug,
 		},
 	}),
@@ -58,7 +56,11 @@ useHead({
 		:fridge-capacity="camper.fridgeCapacity"
 	/>
 
-	<SectionCamperComplectation :item-list="camper.complectation" />
+	<SectionCamperComplectation
+		:item-list="camper.complectation"
+		:is-for-rent="camper.isForRent"
+		:complectation-for-rent="camper.complectationForRent"
+	/>
 
 	<SectionCamperPrice
 		:prices="camper.priceFull"
