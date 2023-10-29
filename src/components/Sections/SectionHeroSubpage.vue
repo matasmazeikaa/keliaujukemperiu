@@ -12,6 +12,7 @@ defineProps<Props>();
 		<img
 			class="top-0 left-0 absolute w-full h-full object-cover"
 			src="@/assets/image/herosubpageBackground.jpg"
+			alt=""
 		/>
 		<div class="container mx-auto relative z-10">
 			<h1 class="text-h4 md:text-h1 text-white">{{ title }}</h1>

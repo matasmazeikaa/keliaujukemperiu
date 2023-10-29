@@ -32,7 +32,7 @@ const title = props.prices.length > 1 ? 'Kainos' : 'Kaina';
 					:key="info"
 					class="text-body-2"
 				>
-					*{{ info }}
+					* {{ info }}
 				</p>
 			</div>
 			<Button

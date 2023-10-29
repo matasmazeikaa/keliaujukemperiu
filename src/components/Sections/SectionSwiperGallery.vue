@@ -7,7 +7,7 @@ interface Props {
 	images: {}[]
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 const swiperInstance = useSwiper();
 
@@ -35,6 +35,7 @@ setTimeout(() => {
 				:space-between="10"
 				:navigation="true"
 				:modules="modules"
+				loop
 				class="mySwiper2 mb-24"
 				@swiper="setControlledSwiper"
 			>
@@ -44,7 +45,7 @@ setTimeout(() => {
 				>
 					<NuxtImg
 						:src="image.attributes.url"
-						:alt="image.attributes.alternateText"
+						:alt="image.attributes.alternateText || ''"
 						class="md:w-[72rem] md:h-[52rem] object-cover"
 						width="720"
 						height="520"
@@ -69,6 +70,7 @@ setTimeout(() => {
 					v-if="images.length"
 					:space-between="24"
 					:slides-per-view="4"
+					loop
 					:watch-slides-progress="true"
 					:modules="modules"
 					class="mySwiper"
@@ -82,6 +84,7 @@ setTimeout(() => {
 						<NuxtImg
 							class="w-[11.2rem] h-[8.4rem] md:w-[25.8rem] md:h-[16.8rem] object-cover"
 							:src="image.attributes.url"
+							:alt="image.attributes.alternateText || ''"
 							quality="85"
 							width="256"
 							height="168"

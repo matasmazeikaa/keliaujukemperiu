@@ -36,7 +36,7 @@ const image = computed(() => props.image);
 				class="hero-image"
 				sizes="xxl:100vw xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
 				:src="image.data.attributes.url"
-				:alt="image.data.attributes.alternativeText"
+				:alt="image.data.attributes.alternativeText || ''"
 				width="1980"
 				height="1080"
 				:quality="85"
@@ -49,7 +49,7 @@ const image = computed(() => props.image);
 					<NuxtImg
 						v-if="icon?.data?.attributes"
 						:src="icon.data.attributes.url"
-						:alt="icon.data.attributes.alternateText"
+						:alt="icon.data.attributes.alternateText || ''"
 						:quality="85"
 						:width="icon.data.attributes.width"
 						:height="icon.data.attributes.height"

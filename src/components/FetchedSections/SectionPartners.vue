@@ -23,7 +23,7 @@ const data = computed(() => pageResponse?.data?.value?.data?.attributes ?? {});
 					<NuxtImg
 						class="hero-image"
 						:src="partner.attributes.url"
-						:alt="partner.attributes.alternativeText"
+						:alt="partner.attributes.alternativeText || `${partner.attributes.name} logotipas`"
 						:quality="100"
 						width="120"
 					/>

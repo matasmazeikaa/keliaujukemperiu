@@ -4,6 +4,8 @@ interface Props {
 	year: string;
 	gearbox: string;
 	weight: string;
+	width: string;
+	height: string;
 	fuelCapacity: string;
 	placesToSit: string;
 	placesToSleep: string;
@@ -64,7 +66,19 @@ defineProps<Props>();
 				<CamperSpecification
 					v-if="fridgeCapacity"
 					type="fridgeCapacity"
-					:value="heating"
+					:value="fridgeCapacity"
+					large
+				/>
+				<CamperSpecification
+					v-if="width"
+					type="width"
+					:value="width"
+					large
+				/>
+				<CamperSpecification
+					v-if="height"
+					type="height"
+					:value="height"
 					large
 				/>
 			</div>

@@ -19,7 +19,7 @@ const markdown = new MarkdownIt();
 			<div class="mb-40 md:mb-0 self-center justify-self-center md:justify-self-end">
 				<NuxtImg
 					:src="topImage.data.attributes.url"
-					:alt="topImage.data.attributes.alternateText"
+					:alt="topImage.data.attributes.alternateText || ''"
 					width="480"
 					height="320"
 					:quality="85"
@@ -29,7 +29,7 @@ const markdown = new MarkdownIt();
 				<NuxtImg
 					v-if="bottomImage?.data?.attributes"
 					:src="bottomImage.data.attributes.url"
-					:alt="bottomImage.data.attributes.alternateText"
+					:alt="bottomImage.data.attributes.alternateText || ''"
 					width="480"
 					height="240"
 					:quality="85"

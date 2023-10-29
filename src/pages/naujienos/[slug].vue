@@ -60,7 +60,7 @@ useHead({
 
 			<div
 				class="blog-content"
-				v-html="markdown.render(blog.blog)"
+				v-html="blog.blog"
 			/>
 		</div>
 	</section>

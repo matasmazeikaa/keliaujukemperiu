@@ -22,7 +22,7 @@ const image = computed(() => gotQuestionsSection.value?.data.attributes.image ??
 		<NuxtImg
 			class="top-0 left-0 absolute w-full h-full object-cover"
 			:src="image.data.attributes.url"
-			:alt="image.data.attributes.alternateText"
+			:alt="image.data.attributes.alternateText || ''"
 			:quality="85"
 			format="webp"
 		/>

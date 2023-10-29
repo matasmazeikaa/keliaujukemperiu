@@ -23,25 +23,30 @@ const props = defineProps<Props>();
 					:key="category.title"
 					class="p-20 md:p-40 pt-44 md:pt-192 relative max-w-[62.4rem] max-h-[40rem]"
 				>
-					<NuxtImg
-						width="624"
-						height="400"
-						class="image"
-						format="webp"
-						:src="category.image.data.attributes.url"
-						:alt="category.image.data.attributes.alternateText"
-					/>
-					<div class="image-overlay" />
-					<div class="relative z-10">
-						<h3 class="text-h4 md:title text-white md:title mb-8">{{ category.title }}</h3>
-						<p class="text-body-2 text-white mb-16">{{ category.subtitle }}</p>
-						<LinkButton
-							class="hover:opacity-75 transition-opacity"
-							:to="category.to"
-						>
-							Daugiau
-						</LinkButton>
-					</div>
+					<NuxtLink
+						:target="isTargeBlank ? '_blank' : '_self'"
+						:to="category.to"
+					>
+						<NuxtImg
+							width="624"
+							height="400"
+							class="image"
+							format="webp"
+							:src="category.image.data.attributes.url"
+							:alt="category.image.data.attributes.alternateText || ''"
+						/>
+						<div class="image-overlay" />
+						<div class="relative z-10">
+							<p class="text-h4 md:title text-white md:title mb-8">{{ category.title }}</p>
+							<p class="text-body-2 text-white mb-16">{{ category.subtitle }}</p>
+							<LinkButton
+								class="hover:opacity-75 transition-opacity"
+								:to="category.to"
+							>
+								Daugiau
+							</LinkButton>
+						</div>
+					</NuxtLink>
 				</div>
 			</div>
 		</div>

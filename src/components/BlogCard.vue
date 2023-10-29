@@ -27,14 +27,13 @@ const to = `/naujienos/${props.slug}`;
 		:to="to"
 	>
 		<NuxtImg
-			class="hero-image"
+			class="hero-image mb-16 md:mb-32"
 			width="400"
 			:src="thumbnail.data.attributes.url"
-			:alt="thumbnail.data.attributes.alternateText"
+			:alt="thumbnail.data.attributes.alternateText || title"
 			:quality="85"
 			format="webp"
 		/>
-		<img class="mb-16 md:mb-32"/>
 		<div class="mb-12 text-label flex gap-4 items-center">
 			<label class=" text-primary-blue">{{ author }}</label>
 			<label class="text-gray">•</label>

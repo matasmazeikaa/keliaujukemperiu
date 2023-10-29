@@ -7,7 +7,9 @@ interface Props {
 	isLoading?: boolean;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const target = props.to?.includes('http') ? '_blank' : '_self';
 </script>
 
 <template>
@@ -21,6 +23,7 @@ defineProps<Props>();
 				'bg-primary-yellow text-primary-black border-gray-200': orange,
 				'bg-primary-blue': !secondary && !white && !orange,
 			}"
+			:target="target"
 			:to="to"
 		>
 			<span class="text-button whitespace-pre"><slot /></span>

@@ -29,7 +29,7 @@ const props = defineProps<Props>();
 				>
 					<NuxtImg
 						:src="`${item.icon.data.attributes.hash}${item.icon.data.attributes.ext}`"
-						:alt="item.icon.data.attributes.alternativeText"
+						:alt="item.icon.data.attributes.alternativeText || ''"
 						width="40"
 						height="40"
 						format="svg"

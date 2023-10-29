@@ -9,7 +9,10 @@ defineProps<Props>();
 <template>
 	<div class="section-padding">
 		<div class="container mx-auto">
-			<p class="text-body-1 whitespace-break-spaces">{{ text }}</p>
+			<div
+				class="text-body-1 whitespace-break-spaces"
+				v-html="text"
+			/>
 		</div>
 	</div>
 </template>

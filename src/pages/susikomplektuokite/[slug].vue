@@ -54,7 +54,7 @@ useHead({
 				>
 					<NuxtImg
 						:src="image.attributes.url"
-						:alt="image.attributes.alternateText"
+						:alt="image.attributes.alternateText || ''"
 						:quality="85"
 						format="webp"
 						:width="image.attributes.width"

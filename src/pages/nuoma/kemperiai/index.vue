@@ -16,7 +16,7 @@ const { data: campers } = await useAsyncData(
 	() => find('campers', {
 		populate: 'deep',
 		filters: {
-			isForSale: true,
+			isForRent: true,
 			isCaravan: false,
 		},
 	}),

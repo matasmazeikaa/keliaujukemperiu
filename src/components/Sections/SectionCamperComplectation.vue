@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import MarkdownIt from 'markdown-it';
+
 interface Props {
 	itemList: {
 		title: string;
@@ -13,6 +15,7 @@ const route = useRoute();
 
 const hasRentKeyword = computed(() => route.path.includes('nuoma'));
 
+const markdown = new MarkdownIt();
 </script>
 
 <template>
@@ -34,7 +37,10 @@ const hasRentKeyword = computed(() => route.path.includes('nuoma'));
 				/>
 			</div>
 			<div v-else>
-				<p class="mt-24 text-body-2 md:text-body-1">{{ complectationForRent }}</p>
+				<div
+					class="mt-24 text-body-2 md:text-body-1 whitespace-break-spaces"
+					v-html="complectationForRent"
+				/>
 			</div>
 		</div>
 	</section>

@@ -9,8 +9,6 @@ const { data: campers } = await useAsyncData(
 	() => find('campers', {
 		populate: 'deep',
 		filters: {
-			isForRent: true,
-			isCaravan: false,
 			slug,
 		},
 	}),
@@ -48,6 +46,7 @@ useHead({
 	<SectionAboutCamper :text="camper.about" />
 
 	<SectionCamperSpecifications
+		v-bind="camper"
 		:year="camper.year"
 		:gearbox="camper.gearbox"
 		:weight="camper.weight"

@@ -21,7 +21,7 @@ const {
 
 <template>
 	<div class="section-padding ">
-		<div class="mx-auto max-w-screen-xl mb-40 md:mb-160 xl:mb-200 mt-20 md:pt-80 grid grid-cols-1 lg:grid-cols-2 gap-80 md:gap-40 lg:gap-80">
+		<div class="mx-auto max-w-screen-xl mb-40 md:mb-160 xl:mb-200 mt-20 md:pt-80 flex flex-col-reverse md:grid lg:grid-cols-2 gap-80 md:gap-40 lg:gap-80">
 			<div>
 				<h2 class="mb-24 md:mb-40 text-h4 md:text-h2 text-black">{{ hasSubmited ?  "Ačiū! Netrūkus su jumis susisieksime." : "Išsiųskite užklausą "}}</h2>
 				<FormKit
