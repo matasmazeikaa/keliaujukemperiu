@@ -17,7 +17,7 @@ defineProps<Props>();
 </script>
 
 <template>
-	<section class="section-padding my-20 md:my-160">
+	<section class="section-padding mt-20 mb-64 md:my-120">
 		<div class="container mx-auto md:grid grid-cols-1 md:grid-cols-2 gap-80">
 			<div class="self-center justify-self-center md:justify-self-end mb-20 md:mb-0">
 				<NuxtImg

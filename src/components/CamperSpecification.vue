@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface Props {
-	type: 'year' | 'gearbox' | 'placesToSit' | 'placesToSleep' | 'weight'| 'fuelCapacity' | 'heating' | 'fridgeCapacity'
+	type: 'year' | 'gearbox' | 'placesToSit' | 'placesToSleep' | 'weight'| 'fuelCapacity' | 'heating' | 'fridgeCapacity' | 'width'
 	value: string;
 	large?: boolean;
 }
@@ -48,6 +48,11 @@ const getSpecification = computed(() => {
 		return {
 			text: 'Šaldytuvas',
 			icon: resolveComponent('IconFridgeCapacity'),
+		};
+	case 'width':
+		return {
+			text: 'Plotis',
+			icon: resolveComponent('IconWidth'),
 		};
 	default:
 		return {

@@ -11,7 +11,7 @@ defineProps<Props>();
 </script>
 
 <template>
-	<section class="section-padding my-40 md:my-160">
+	<section class="section-padding my-64 md:my-120">
 		<div class="container mx-auto">
 			<h2 class="text-h4 md:text-h2 text-primary-black mb-24 md:mb-64">{{ title }}</h2>
 

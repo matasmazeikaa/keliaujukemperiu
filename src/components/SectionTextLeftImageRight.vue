@@ -24,7 +24,7 @@ defineProps<Props>();
 
 </script>
 <template>
-	<div class="section-padding mb-64 mt-120 md:mt-160 md:mb-120">
+	<div class="section-padding mb-64 mt-120 md:mt-120 md:mb-120">
 		<div class=" max-w-screen-xl mx-auto flex flex-col md:flex-row items-center">
 			<div class="mb-32 md:mb-0 md:mr-64 md:w-5/12">
 				<div class="mb-24 md:mb-32">

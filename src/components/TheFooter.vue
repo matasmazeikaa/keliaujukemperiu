@@ -7,10 +7,6 @@ const FOOTER = {
 			link: '/prekyba',
 		},
 		{
-			title: 'Susikomplektuokite',
-			link: '/susikomplektuokite',
-		},
-		{
 			title: 'Finansavimas',
 			link: '/finansavimas',
 		},
@@ -27,7 +23,7 @@ const FOOTER = {
 	],
 	otherLinks: [
 		{
-			title: 'Įranga kemperiams',
+			title: 'Įranga',
 			link: '/iranga',
 		},
 		{
@@ -52,7 +48,7 @@ const FOOTER = {
 
 <template>
 	<footer class="section-padding  bg-primary-black ">
-		<div class="container mx-auto py-40 md:py-160">
+		<div class="container mx-auto py-40 md:py-120">
 			<div class="footer-top-part">
 				<div class="md:max-w-[26rem]">
 					<LogoWhite class="mb-24"/>

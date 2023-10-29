@@ -22,14 +22,22 @@ const props = withDefaults(defineProps<Props>(), {
 		{
 			to: '/prekyba',
 			title: 'Prekyba',
+			subpages: {
+				Kemperiai: '/prekyba/kemperiai',
+				Karavanai: '/prekyba/karavanai',
+			},
 		},
 		{
 			to: '/nuoma',
 			title: 'Nuoma',
+			subpages: {
+				Kemperiai: '/nuoma/kemperiai',
+				Karavanai: '/nuoma/karavanai',
+			},
 		},
 		{
 			to: '/iranga',
-			title: 'Įranga kemperiams',
+			title: 'Įranga',
 		},
 		{
 			to: '/servisas',
@@ -149,6 +157,25 @@ onMounted(() => {
 								>
 									{{ item.title }}
 								</NuxtLink>
+
+								<div
+									v-if="item.subpages"
+									class="dropdown-content"
+								>
+									<NuxtLink
+										v-for="key, value in item.subpages"
+										:key="key"
+										:to="value"
+										class="text-body-2 cursor-pointer hover:opacity-75 transition-opacity"
+										:class="{
+											'text-white': !isWhite,
+											'text-primary-black': isWhite,
+											'is-blur-hovered': hoveredNavItem !== index && hoveredNavItem !== null,
+										}"
+									>
+										{{ key }}
+									</NuxtLink>
+								</div>
 							</li>
 						</ul>
 						<div class="hidden md:block">

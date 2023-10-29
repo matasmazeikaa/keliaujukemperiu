@@ -72,7 +72,7 @@ useHead({
 		class="section-padding"
 	>
 		<div class="container mx-auto">
-			<h2 class="text-h2 text-primary-black text-center">Daugiau straipsniu</h2>
+			<h2 class="text-h2 text-primary-black text-center">Daugiau straipsnių</h2>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 my-64">
 				<BlogCard

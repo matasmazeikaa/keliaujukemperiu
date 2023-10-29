@@ -15,7 +15,7 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-	<div class="section-padding my-40 md:my-160">
+	<div class="section-padding my-64 md:my-120">
 		<div class="container mx-auto">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-32">
 				<div

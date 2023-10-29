@@ -30,7 +30,8 @@ const image = computed(() => props.image);
 		id="hero-section"
 		class="hero-section section-padding"
 	>
-		<div class="container mx-auto mt-120">
+		<div class="h-[7.2rem] lg:h-96" />
+		<div class="container mx-auto mt-[7.2rem] lg:mt-96">
 			<NuxtImg
 				class="hero-image"
 				sizes="xxl:100vw xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
@@ -43,7 +44,7 @@ const image = computed(() => props.image);
 				preload
 			/>
 			<div class="background-drop"/>
-			<div class="content container section-padding mx-auto">
+			<div class="content container mx-auto">
 				<div class="max-w-[40rem] md:max-w-[64rem] mx-auto md:mx-0 w-full text-white">
 					<NuxtImg
 						v-if="icon?.data?.attributes"
@@ -52,7 +53,7 @@ const image = computed(() => props.image);
 						:quality="85"
 						:width="icon.data.attributes.width"
 						:height="icon.data.attributes.height"
-						class="mb-16 mx-auto md:mb-40"
+						class="mb-16 md:mb-40 mx-auto md:ml-0 md:mr-0"
 					/>
 					<h1 class="text-h1-mobile md:text-h1 mb-8 md:mb-16 text-center md:text-left">{{ title }}</h1>
 					<p class="text-body-2 md:text-body-1 text-center md:text-left mb-16 md:mb-32">{{ subtitle }}</p>
@@ -67,7 +68,7 @@ const image = computed(() => props.image);
 							is-orange
 						/>
 					</div>
-					<div class="flex flex-wrap gap-16">
+					<div class="justify-center md:justify-normal flex flex-wrap gap-16">
 						<Button
 							v-for="button in ctaButton"
 							:key="button.text"
@@ -87,11 +88,12 @@ const image = computed(() => props.image);
 
 <style scoped>
 .hero-section {
-	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-self: center;
 	position: relative;
+	min-height: 800px;
+	height: 100dvh;
 }
 
 .partners-list {

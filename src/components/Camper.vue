@@ -5,21 +5,34 @@ interface Props {
 	pricePerDay: string;
 	year: string;
 	gearbox: string;
+	weight: string;
+	width: string;
 	placesToSit: string;
 	placesToSleep: string;
 	thumbnail: {};
 	slug: string;
 	price: string;
 	isForPurchase: boolean;
+	isCaravan: boolean;
+	visibleAttribute: {
+		id: number;
+		visibleAttribute: string
+	}[]
 }
 
 const props = defineProps<Props>();
+const route = useRoute();
 
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-const camperRoute = props.pricePerDay ? `/nuoma/kemperiai/${props.slug}` : `/prekyba/kemperiai/${props.slug}`;
+const camperSlug = props.isCaravan ? 'karavanai' : 'kemperiai';
+
+const isSalePage = computed(() => route.path.includes('/prekyba'));
+const isRentPage = computed(() => route.path.includes('/nuoma'));
+
+const camperRoute = isRentPage.value ? `/nuoma/${camperSlug}/${props.slug}` : `/prekyba/${camperSlug}/${props.slug}`;
 </script>
 
 <template>
@@ -37,31 +50,21 @@ const camperRoute = props.pricePerDay ? `/nuoma/kemperiai/${props.slug}` : `/pre
 			<h3 class="text-h4 md:text-h3 mb-8">{{ title }}</h3>
 			<p class="text-body-2 text-primary-black mb-12 md:mb-16">{{ previewDescription }}</p>
 			<div
-				v-if="pricePerDay"
+				v-if="isRentPage"
 				class="flex gap-8 mb-24 h-[5.4rem]"
 			>
 				<p class="button-style-1 md:text-h4 text-primary-black mb-8">Nuo</p>
 				<p class="text-h4 md:text-h3 text-primary-black mb-16">{{ pricePerDay }}€ / d.</p>
 			</div>
-			<div v-if="price">
+			<div v-if="isSalePage">
 				<p class="text-h4 md:text-h3 text-primary-black mb-16">{{ numberWithCommas(price) }} €</p>
 			</div>
 			<div class="grid grid-cols-2 gap-16 md:flex md:gap-40 mb-24">
 				<CamperSpecification
-					type="year"
-					:value="year"
-				/>
-				<CamperSpecification
-					type="gearbox"
-					:value="gearbox"
-				/>
-				<CamperSpecification
-					type="placesToSit"
-					:value="placesToSit"
-				/>
-				<CamperSpecification
-					type="placesToSleep"
-					:value="placesToSleep"
+					v-for="attribute in visibleAttribute"
+					:key="attribute.id"
+					:type="attribute.visibleAttribute"
+					:value="props[attribute.visibleAttribute]"
 				/>
 			</div>
 			<Button

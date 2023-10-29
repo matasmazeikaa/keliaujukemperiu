@@ -18,7 +18,7 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-	<section class="section-padding bg-primary-black py-64 md:py-160">
+	<section class="section-padding bg-primary-black py-64 md:py-120">
 		<div class="container mx-auto flex flex-wrap gap-24 md:gap-80">
 			<h2 class="text-h4 md:text-h2 text-white max-w-[56.8rem]">{{ title }}</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-40">

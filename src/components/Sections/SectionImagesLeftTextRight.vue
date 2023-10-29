@@ -14,7 +14,7 @@ const markdown = new MarkdownIt();
 </script>
 
 <template>
-	<section class="section-padding mt-20 mb-40 md:my-160">
+	<section class="section-padding mt-20 mb-40 md:my-120">
 		<div class="container mx-auto md:grid grid-cols-1 md:grid-cols-2 gap-80">
 			<div class="mb-40 md:mb-0 self-center justify-self-center md:justify-self-end">
 				<NuxtImg

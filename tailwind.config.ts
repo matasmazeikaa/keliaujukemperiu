@@ -47,7 +47,7 @@ export default <Partial<Config>>{
 					},
 				],
 				'h1-mobile': [
-					'3.2rem',
+					'2.6rem',
 					{
 						fontWeight: '600',
 					},

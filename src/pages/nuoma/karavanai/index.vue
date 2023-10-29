@@ -48,15 +48,7 @@ useHead({
 				v-for="{ attributes: camper } in campers?.data"
 				:key="camper.title"
 				class="mb-80"
-				:gearbox="camper.gearbox"
-				:year="camper.year"
-				:title="camper.title"
-				:price-per-day="camper.pricePerDay"
-				:places-to-sit="camper.placesToSit"
-				:places-to-sleep="camper.placesToSleep"
-				:preview-description="camper.previewDescription"
-				:slug="camper.slug"
-				:thumbnail="camper.thumbnail"
+				v-bind="camper"
 			/>
 		</div>
 	</section>

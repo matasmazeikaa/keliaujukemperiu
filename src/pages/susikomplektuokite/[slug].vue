@@ -44,7 +44,7 @@ useHead({
 		v-bind="partner.Hero"
 	/>
 
-	<section class="section-padding my-40 md:mt-160 md:mb-80">
+	<section class="section-padding my-64 md:mt-120 md:mb-80">
 		<div class="container mx-auto">
 			<div class="gallery">
 				<div
@@ -74,19 +74,12 @@ useHead({
 
 	<section class="section-padding py-80">
 		<div class="container mx-auto">
+			<h2 class="mb-24 md:mb-64 text-h1-mobile md:text-h2">Vietoje turime šiuos modelius</h2>
 			<Camper
 				v-for="{ attributes: camper } in partner.campers.data"
 				:key="camper.title"
-				class="mb-80"
-				:gearbox="camper.gearbox"
-				:year="camper.year"
-				:title="camper.title"
-				:price-per-day="camper.pricePerDay"
-				:places-to-sit="camper.placesToSit"
-				:places-to-sleep="camper.placesToSleep"
-				:preview-description="camper.previewDescription"
-				:slug="camper.slug"
-				:thumbnail="camper.thumbnail"
+				class="last:mb-0 mb-80"
+				v-bind="camper"
 			/>
 		</div>
 	</section>

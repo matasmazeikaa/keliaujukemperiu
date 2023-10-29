@@ -17,7 +17,7 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-	<div class="section-padding my-40 md:my-160">
+	<div class="section-padding my-64 md:my-120">
 		<div class="container mx-auto">
 			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">Susikomplektuokite kemperį ar karavaną</h2>
 			<div class="flex flex-wrap justify-center gap-32">
