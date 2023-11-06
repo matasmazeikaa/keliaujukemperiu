@@ -93,6 +93,13 @@ export default <Partial<Config>>{
 						lineHeight: '3.2rem',
 					},
 				],
+				h5: [
+					'2rem',
+					{
+						fontWeight: '500',
+						lineHeight: '2.8rem',
+					},
+				],
 				label: [
 					'1.4rem',
 					{

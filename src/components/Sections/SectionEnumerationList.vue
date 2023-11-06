@@ -22,7 +22,7 @@ defineProps<Props>();
 					class="max-w-[28rem]"
 				>
 					<p class="list-item-number mb-20">0{{ index + 1 }}</p>
-					<h3 class="text-h4 text-primary-black mb-8">{{ item.title }}</h3>
+					<h3 class="text-h5 md:text-h4 text-primary-black mb-8">{{ item.title }}</h3>
 					<p class="text-body-2 text-primary-black opacity-65">{{ item.subtitle }}</p>
 				</div>
 			</div>

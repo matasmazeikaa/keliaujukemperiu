@@ -74,7 +74,7 @@ useHead({
 
 	<section
 		v-if="partner.campers.data.length"
-		class="section-padding py-80"
+		class="section-padding my-80"
 	>
 		<div class="container mx-auto">
 			<h2 class="mb-24 md:mb-64 text-h1-mobile md:text-h2">Vietoje turime šiuos modelius</h2>
