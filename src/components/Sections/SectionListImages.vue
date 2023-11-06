@@ -19,7 +19,10 @@ defineProps<Props>();
 <template>
 	<section class="section-padding mt-20 mb-64 md:my-120">
 		<div class="container mx-auto md:grid grid-cols-1 md:grid-cols-2 gap-80">
-			<div class="self-center justify-self-center md:justify-self-end mb-20 md:mb-0">
+			<div
+				class="self-center justify-self-center md:justify-self-end mb-20 md:mb-0"
+				:class="{ 'h-full': !imageBottom?.data?.attributes, }"
+			>
 				<NuxtImg
 					:src="imageTop.data.attributes.url"
 					:alt="imageTop.data.attributes.alternateText || ''"
@@ -27,7 +30,11 @@ defineProps<Props>();
 					height="320"
 					:quality="85"
 					format="webp"
-					class="object-cover mb-24"
+					class="object-cover"
+					:class="{
+						'mb-24': imageBottom?.data?.attributes,
+						'h-full':  !imageBottom?.data?.attributes,
+					}"
 				/>
 				<NuxtImg
 					v-if="imageBottom?.data?.attributes"
