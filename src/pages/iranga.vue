@@ -29,6 +29,7 @@ useHead({
 
 	<SectionPartnerCategory
 		:page-category="pageData.choosePartnerEquipmentSection.pageCategory"
+		button-cta="Gamintojo svetainė"
 		is-targe-blank
 	/>
 

@@ -60,7 +60,10 @@ useHead({
 
 	<SectionPartners />
 
-	<SectionPartnerCategory :page-category="mapPartnersData" />
+	<SectionPartnerCategory
+		id="susikomplektuokite"
+		:page-category="mapPartnersData"
+	/>
 
 	<SectionFinance
 		v-bind="pageData.aboutFinanceSection"

@@ -108,11 +108,11 @@ setTimeout(() => {
 </template>
 
 <style>
-.swiper-button-prev {
+.swiper-button-prev:not(.s) {
 	display: none;
 }
 
-.swiper-button-next {
+.swiper-button-next:not(.s) {
 	display: none;
 }
 .swiper {

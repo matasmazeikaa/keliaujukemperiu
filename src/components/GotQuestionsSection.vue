@@ -25,6 +25,7 @@ const image = computed(() => gotQuestionsSection.value?.data.attributes.image ??
 			:alt="image.data.attributes.alternateText || ''"
 			:quality="85"
 			format="webp"
+			loading="lazy"
 		/>
 		<div class="py-64 md:py-120 section-padding container mx-auto text-center text-white relative z-10">
 			<h2 class="text-h4 md:text-h2 mb-8 md:mb-16">{{ title }}</h2>

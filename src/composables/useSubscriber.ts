@@ -14,8 +14,6 @@ export const useSubscriber = () => {
 	const submitForm = async (data: any) => {
 		isLoading.value = true;
 
-		console.log(data);
-
 		try {
 			await create('create-mail', {
 				name: data.name,

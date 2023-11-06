@@ -3,8 +3,16 @@ const FOOTER = {
 	aboutSubtitle: 'Kelionė su kemperiu ar karavanu skirta žmonėms, kurie nori pažinti pasaulį nepriklausomai.',
 	servicesLinks: [
 		{
-			title: 'Prekyba',
-			link: '/prekyba',
+			title: 'Kemperiai',
+			link: '/prekyba/kemperiai',
+		},
+		{
+			title: 'Karavanai',
+			link: '/prekyba/karavanai',
+		},
+		{
+			title: 'Susikomplektuokite',
+			link: '/prekyba#susikomplektuokite',
 		},
 		{
 			title: 'Finansavimas',
@@ -71,7 +79,7 @@ const FOOTER = {
 					</div>
 				</div>
 
-				<div class="flex flex-col gap-16 order-4">
+				<div class="flex flex-col gap-16 order-4 md:order-none">
 					<p class="button-style-1 mb-24 text-primary-yellow">Pardavimas</p>
 					<NuxtLink
 						v-for="service in FOOTER.servicesLinks"
@@ -83,7 +91,7 @@ const FOOTER = {
 					</NuxtLink>
 				</div>
 
-				<div class="flex flex-col gap-16 order-3">
+				<div class="flex flex-col gap-16 order-3 md:order-none">
 					<p class="button-style-1 mb-24 text-primary-yellow">Nuoma</p>
 					<NuxtLink
 						v-for="company in FOOTER.companyLinks"
@@ -95,7 +103,7 @@ const FOOTER = {
 					</NuxtLink>
 				</div>
 
-				<div class="flex flex-col gap-16 order-2">
+				<div class="flex flex-col gap-16 order-2 md:order-none">
 					<p class="button-style-1 mb-24 text-primary-yellow">Kita</p>
 					<NuxtLink
 						v-for="company in FOOTER.otherLinks"
@@ -111,7 +119,7 @@ const FOOTER = {
 		<div class="container mx-auto text-center">
 			<div class="h-[0.5px] bg-[#494B5A]" />
 
-			<p class="text-body-2 py-32 opacity-70 text-white">KeliaujuKemperiu.lt {{ new Date().getFullYear() }}</p>
+			<p class="text-body-2 py-32 opacity-70 text-white">keliaujukemperiu.lt {{ new Date().getFullYear() }}</p>
 		</div>
 	</footer>
 </template>

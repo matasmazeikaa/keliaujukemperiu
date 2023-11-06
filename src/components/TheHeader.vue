@@ -4,12 +4,10 @@ import {
 } from 'body-scroll-lock';
 
 interface Props {
-	items: {
-		to: string;
-		title: string;
-	}[];
 	white?: boolean;
 }
+
+const { find } = useStrapi();
 
 const headerRef = ref<HTMLElement | null>(null);
 const isWhiteLocal = ref(false);
@@ -17,42 +15,59 @@ const hoveredNavItem = ref<null|number>(null);
 const currentScrollPosition = ref(0);
 const isScrollingDown = ref(false);
 
-const props = withDefaults(defineProps<Props>(), {
-	items: () => [
-		{
-			to: '/prekyba',
-			title: 'Prekyba',
-			subpages: {
-				Kemperiai: '/prekyba/kemperiai',
-				Karavanai: '/prekyba/karavanai',
-			},
+const { data: blogs } = await useAsyncData(
+	'blogs',
+	() => find('blogs', {
+		populate: 'deep',
+	}),
+);
+
+const hasBlogs = computed(() => !!blogs.value?.data?.length);
+
+const blogLink = hasBlogs.value ? {
+	to: '/naujienos',
+	title: 'Naujienos',
+} : null;
+
+const props = defineProps<Props>();
+
+const items = computed(() => [
+	{
+		to: '/prekyba',
+		title: 'Prekyba',
+		subpages: {
+			Kemperiai: '/prekyba/kemperiai',
+			Karavanai: '/prekyba/karavanai',
+			Susikomplektuokite: '/prekyba#susikomplektuokite',
+			Finansavimas: '/finansavimas',
 		},
-		{
-			to: '/nuoma',
-			title: 'Nuoma',
-			subpages: {
-				Kemperiai: '/nuoma/kemperiai',
-				Karavanai: '/nuoma/karavanai',
-			},
+	},
+	{
+		to: '/nuoma',
+		title: 'Nuoma',
+		subpages: {
+			Kemperiai: '/nuoma/kemperiai',
+			Karavanai: '/nuoma/karavanai',
 		},
-		{
-			to: '/iranga',
-			title: 'Įranga',
-		},
-		{
-			to: '/servisas',
-			title: 'Servisas',
-		},
-		{
-			to: '/apie-mus',
-			title: 'Apie mus',
-		},
-		{
-			to: '/naujienos',
-			title: 'Naujienos',
-		},
-	],
-});
+	},
+	{
+		to: '/iranga',
+		title: 'Įranga',
+	},
+	{
+		to: '/servisas',
+		title: 'Servisas',
+	},
+	{
+		to: '/apie-mus',
+		title: 'Apie mus',
+	},
+	blogLink,
+	{
+		to: '/kontaktai',
+		title: 'Kontaktai',
+	},
+].filter(Boolean));
 
 const isMobileMenuOpen = ref(false);
 
@@ -178,7 +193,7 @@ onMounted(() => {
 								</div>
 							</li>
 						</ul>
-						<div class="hidden md:block">
+						<div class="md:block">
 							<p
 								class="working-time mb-4"
 								:class="{

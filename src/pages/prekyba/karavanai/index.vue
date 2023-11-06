@@ -34,8 +34,6 @@ useHead({
 		},
 	],
 });
-
-console.log(campers);
 </script>
 
 <template>

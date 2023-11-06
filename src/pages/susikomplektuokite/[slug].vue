@@ -5,7 +5,7 @@ const route = useRoute();
 const { slug } = route.params;
 
 const { data: partners } = await useAsyncData(
-	'partners',
+	`partners-${slug}`,
 	() => find('partners', {
 		populate: 'deep',
 		filters: {
@@ -72,7 +72,10 @@ useHead({
 		:infos="partner.info.map(({ title }) => title)"
 	/>
 
-	<section class="section-padding py-80">
+	<section
+		v-if="partner.campers.data.length"
+		class="section-padding py-80"
+	>
 		<div class="container mx-auto">
 			<h2 class="mb-24 md:mb-64 text-h1-mobile md:text-h2">Vietoje turime šiuos modelius</h2>
 			<Camper

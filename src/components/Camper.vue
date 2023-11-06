@@ -35,7 +35,7 @@ const isRentPage = computed(() => route.path.includes('/nuoma'));
 
 const camperRoute = isRentPage.value ? `/nuoma/${camperSlug}/${props.slug}` : `/prekyba/${camperSlug}/${props.slug}`;
 
-console.log(props);
+const shouldShowNuo = computed(() => !props.pricePerDay.includes('-'));
 </script>
 
 <template>
@@ -49,14 +49,19 @@ console.log(props);
 			height="450"
 			format="webp"
 		/>
-		<div>
+		<div class="w-full">
 			<h3 class="text-h4 md:text-h3 mb-8">{{ title }}</h3>
 			<p class="text-body-2 text-primary-black mb-12 md:mb-16">{{ previewDescription }}</p>
 			<div
 				v-if="isRentPage && pricePerDay"
 				class="flex gap-8 mb-24 h-[5.4rem]"
 			>
-				<p class="button-style-1 md:text-h4 text-primary-black mb-8">Nuo</p>
+				<p
+					v-if="shouldShowNuo"
+					class="button-style-1 md:text-h4 text-primary-black mb-8"
+				>
+					Nuo
+				</p>
 				<p class="text-h4 md:text-h3 text-primary-black mb-16">{{ pricePerDay }}€ / d.</p>
 			</div>
 			<div v-if="isSalePage && price">
