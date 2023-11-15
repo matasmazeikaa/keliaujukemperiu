@@ -24,19 +24,7 @@ const markdown = new MarkdownIt();
 			<h2 class="text-h4 md:text-h2 mb-20 md:mb-24">Komplektacija</h2>
 			<p class="mb-24 md:mb-64 text-body-2 md:text-body-1">Padėsime susikomplektuoti savo kemperį pagal poreikius ir pritaikyti suplanuotoms kelionėms.</p>
 
-			<div
-				v-if="!hasRentKeyword"
-				class="item-list"
-			>
-				<ListItem
-					v-for="item in itemList"
-					:key="item.title"
-					:text="item.title"
-					class="title-primary-black"
-					is-blue
-				/>
-			</div>
-			<div v-else>
+			<div >
 				<div
 					class="mt-24 text-body-2 md:text-body-1 whitespace-break-spaces"
 					v-html="complectationForRent"

@@ -41,9 +41,10 @@ const shouldShowNuo = computed(() => !props.pricePerDay.includes('-'));
 <template>
 	<div class="flex items-center flex-wrap md:flex-nowrap gap-16 md:gap-40">
 		<NuxtImg
+			v-if="thumbnail.data?.attributes.url"
 			class="hero-image max-w-[60rem] w-full"
-			:src="thumbnail.data.attributes.url"
-			:alt="thumbnail.data.attributes.alternativeText || title"
+			:src="thumbnail.data?.attributes.url || ''"
+			:alt="thumbnail.data?.attributes.alternativeText || title || ''"
 			:quality="85"
 			width="600"
 			height="450"
