@@ -13,6 +13,18 @@
 </template>
 
 <script setup lang="ts">
+const { find } = useStrapi();
+const context = useNuxtApp();
+
+const { data } = await useAsyncData(
+	'meta',
+	() => find('meta', {
+		populate: ['deep'],
+	}),
+);
+
+const ogImageThumbnail = computed(() => `${context.$config.strapi.url}${data?.value?.data?.attributes?.ogImage.data.attributes.formats.medium.url}`);
+
 useHead({
 	titleTemplate: '%s | Keliauju kemperiu',
 	link: [
@@ -53,6 +65,16 @@ useHead({
 		{
 			name: 'theme-color',
 			content: '#FFFFFF',
+		},
+		{
+			hid: 'og:image',
+			property: 'og:image',
+			content: ogImageThumbnail.value,
+		},
+		{
+			hid: 'twitter:image',
+			property: 'twitter:image',
+			content: ogImageThumbnail.value,
 		},
 	],
 });
