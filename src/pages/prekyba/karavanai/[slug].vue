@@ -5,7 +5,7 @@ const route = useRoute();
 const { slug } = route.params;
 
 const { data: campers } = await useAsyncData(
-	'campers-caravan-sale',
+	`campers-caravan-sale-${slug}`,
 	() => find('campers', {
 		populate: 'deep',
 		filters: {

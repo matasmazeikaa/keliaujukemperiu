@@ -22,7 +22,6 @@ const markdown = new MarkdownIt();
 	<section class="section-padding my-64 md:my-120">
 		<div class="container mx-auto">
 			<h2 class="text-h4 md:text-h2 mb-20 md:mb-24">Komplektacija</h2>
-			<p class="mb-24 md:mb-64 text-body-2 md:text-body-1">Padėsime susikomplektuoti savo kemperį pagal poreikius ir pritaikyti suplanuotoms kelionėms.</p>
 
 			<div >
 				<div

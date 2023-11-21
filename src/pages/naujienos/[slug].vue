@@ -11,7 +11,7 @@ const route = useRoute();
 const { slug } = route.params;
 
 const { data: blogs } = await useAsyncData(
-	'blogPage',
+	`blogPage-${slug}`,
 	() => find<IProperty>('blogs', {
 		populate: ['deep'],
 		filters: {
