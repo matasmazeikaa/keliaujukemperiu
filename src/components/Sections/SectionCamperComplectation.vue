@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import MarkdownIt from 'markdown-it';
-
 interface Props {
 	itemList: {
 		title: string;
@@ -10,12 +8,6 @@ interface Props {
 }
 
 defineProps<Props>();
-
-const route = useRoute();
-
-const hasRentKeyword = computed(() => route.path.includes('nuoma'));
-
-const markdown = new MarkdownIt();
 </script>
 
 <template>
