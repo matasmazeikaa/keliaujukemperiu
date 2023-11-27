@@ -1,6 +1,4 @@
 const APP_META = {
-	title: 'Keliaujukemperiu',
-	description: 'Keliaujukemperiu kemperiu pardavimas seimos verslas',
 	favicon: '/favicon.ico',
 	url: 'https://keliaujukemperiu.lt',
 	language: 'lt',
@@ -27,8 +25,6 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
 			siteUrl: APP_META.url || 'https://example.com',
-			siteName: APP_META.title,
-			siteDescription: APP_META.description,
 			language: APP_META.language,
 		},
 	},
@@ -77,6 +73,18 @@ export default defineNuxtConfig({
 		],
 	},
 
+	gtag: {
+		id: 'G-R5110Y4W22',
+	},
+
+	facebook: {
+		/* module options */
+		track: 'PageView',
+		pixelId: '252158580555746',
+		autoPageView: true,
+		disabled: false,
+	},
+
 	// modules
 	modules: [
 		'@nuxtjs/tailwindcss',
@@ -88,7 +96,9 @@ export default defineNuxtConfig({
 		'nuxt-headlessui',
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/strapi',
+		'nuxt-gtag',
 		'nuxt-swiper',
+		'nuxt3-meta-pixel',
 		[
 			'@nuxtjs/google-fonts',
 			{

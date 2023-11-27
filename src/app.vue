@@ -26,7 +26,7 @@ const { data } = await useAsyncData(
 const ogImageThumbnail = computed(() => `${context.$config.strapi.url}${data?.value?.data?.attributes?.ogImage.data.attributes.formats.medium.url}`);
 
 useHead({
-	titleTemplate: '%s | Keliauju kemperiu',
+	titleTemplate: '%s',
 	link: [
 		{
 			rel: 'apple-touch-icon',
