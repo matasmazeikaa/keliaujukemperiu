@@ -16,6 +16,65 @@
 const { find } = useStrapi();
 const context = useNuxtApp();
 
+function loadGtag() {
+	// Replace 'GA_MEASUREMENT_ID' with your actual Google Analytics Measurement ID
+	const GA_MEASUREMENT_ID = 'G-R5110Y4W22';
+
+	// Create a script element
+	const script = document.createElement('script');
+
+	script.async = true;
+
+	// Set the source of the script to the gtag.js URL with your Measurement ID
+	script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+
+	// Append the script to the document's head
+	document.head.appendChild(script);
+
+	// Set up the gtag.js configuration after the script has loaded
+	script.addEventListener('load', () => {
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			window.dataLayer.push(arguments);
+		}
+
+		gtag('js', new Date());
+		gtag('config', GA_MEASUREMENT_ID);
+	});
+}
+
+// Function to load Facebook Pixel script
+function loadFacebookPixel() {
+	// Replace 'YOUR_PIXEL_ID' with your actual Facebook Pixel ID
+	const YOUR_PIXEL_ID = '252158580555746';
+
+	// Create a script element
+	const script = document.createElement('script');
+
+	script.async = true;
+
+	// Set the source of the script to the Facebook Pixel base code
+	script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+
+	// Append the script to the document's head
+	document.head.appendChild(script);
+
+	// Set up the Facebook Pixel configuration after the script has loaded
+	script.addEventListener('load', () => {
+		// Initialize the Facebook Pixel
+		fbq('init', YOUR_PIXEL_ID);
+
+		// Track a page view or any other events if needed
+		fbq('track', 'PageView');
+	});
+}
+
+// Set a timeout to call the loadFacebookPixel function after 10 seconds
+setTimeout(loadFacebookPixel, 10000);
+
+// Set a timeout to call the loadGtag function after 10 seconds
+setTimeout(loadGtag, 10000);
+
 const { data } = await useAsyncData(
 	'meta',
 	() => find('meta', {

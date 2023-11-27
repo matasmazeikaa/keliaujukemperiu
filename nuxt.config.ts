@@ -73,18 +73,6 @@ export default defineNuxtConfig({
 		],
 	},
 
-	gtag: {
-		id: 'G-R5110Y4W22',
-	},
-
-	facebook: {
-		/* module options */
-		track: 'PageView',
-		pixelId: '252158580555746',
-		autoPageView: true,
-		disabled: false,
-	},
-
 	// modules
 	modules: [
 		'@nuxtjs/tailwindcss',
@@ -96,9 +84,7 @@ export default defineNuxtConfig({
 		'nuxt-headlessui',
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/strapi',
-		'nuxt-gtag',
 		'nuxt-swiper',
-		'nuxt3-meta-pixel',
 		[
 			'@nuxtjs/google-fonts',
 			{
