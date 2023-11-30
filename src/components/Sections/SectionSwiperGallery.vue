@@ -30,35 +30,10 @@ setTimeout(() => {
 <template>
 	<section class="section-padding bg-white my-20 md:my-80">
 		<div class="container mx-auto">
-			<Swiper
-				v-if="images.length"
-				:space-between="10"
-				:navigation="true"
-				:modules="modules"
-				loop
-				class="mySwiper2 mb-24"
-				@swiper="setControlledSwiper"
-			>
-				<SwiperSlide
-					v-for="(image, index) in images"
-					:key="image.attributes.url"
-				>
-					<NuxtImg
-						:src="image.attributes.url"
-						:alt="image.attributes.alternateText || ''"
-						class="md:w-[72rem] md:h-[52rem] object-cover"
-						width="720"
-						height="520"
-						format="webp"
-						quality="85"
-					/>
-				</SwiperSlide>
-			</Swiper>
-
-			<div class="flex items-center">
+			<div class="flex items-center justify-center">
 				<div class="p-16 hidden md:block">
 					<IconArrowRightGallery
-						class="cursor-pointer"
+						class="cursor-pointer w-80 h-auto"
 						role="button"
 						alt="previous testimonial"
 						aria-label="previous testimonial"
@@ -68,34 +43,54 @@ setTimeout(() => {
 
 				<Swiper
 					v-if="images.length"
-					:space-between="24"
-					:slides-per-view="4"
-					loop
-					:watch-slides-progress="true"
+					:space-between="10"
+					:navigation="true"
 					:modules="modules"
-					class="mySwiper"
+					loop
+					class="mySwiper2 mb-24"
+					@swiper="setControlledSwiper"
 				>
+					<div class="arrow-container-mobile-left md:hidden">
+						<IconArrowRightGallery
+							class="cursor-pointer "
+							role="button"
+							alt="previous testimonial"
+							aria-label="previous testimonial"
+							@click="controlledSwiper.slidePrev()"
+						/>
+					</div>
 					<SwiperSlide
 						v-for="(image, index) in images"
 						:key="image.attributes.url"
-						class="!h-full"
-						@click="controlledSwiper?.slideTo(index)"
 					>
 						<NuxtImg
-							class="w-[11.2rem] h-[8.4rem] md:w-[25.8rem] md:h-[16.8rem] object-cover"
 							:src="image.attributes.url"
 							:alt="image.attributes.alternateText || ''"
+							class="md:w-[72rem] md:h-[52rem] object-cover"
+							width="720"
+							height="520"
+							format="webp"
 							quality="85"
-							width="256"
-							height="168"
-							@click="controlledSwiper?.slideTo(index)"
 						/>
 					</SwiperSlide>
-				</Swiper>
 
+					<div class="image-count-container">
+						<p class="text-label md:text-body-2 text-white">{{ (controlledSwiper.realIndex || 0) + 1 }} / {{ images.length }}</p>
+					</div>
+
+					<div class="arrow-container-mobile-right md:hidden" >
+						<IconArrowRightGallery
+							class="cursor-pointer rotate-180"
+							role="button"
+							alt="previous testimonial"
+							aria-label="previous testimonial"
+							@click="controlledSwiper.slideNext()"
+						/>
+					</div>
+				</Swiper>
 				<div class="p-16 hidden md:block" >
 					<IconArrowRightGallery
-						class="cursor-pointer rotate-180"
+						class="cursor-pointer rotate-180 w-80 h-auto"
 						role="button"
 						alt="previous testimonial"
 						aria-label="previous testimonial"
@@ -108,6 +103,60 @@ setTimeout(() => {
 </template>
 
 <style>
+
+.arrow-container-mobile-left {
+	padding: 12px;
+	position: absolute;
+    top: 50%;
+	left: 0;
+    transform: translate(0,-50%);
+
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	z-index: 100;
+}
+
+.arrow-container-mobile-right {
+	padding: 12px;
+	position: absolute;
+    top: 50%;
+	right: 0;
+    transform: translate(0,-50%);
+
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	z-index: 100;
+}
+
+.image-count-container {
+	padding: 18px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	z-index: 100;
+}
+
+@screen md {
+	.image-count-container {
+		padding: 48px;
+	}
+
+	.arrow-container-mobile-left, .arrow-container-mobile-right {
+		display: none;
+	}
+}
+
 .swiper-button-prev:not(.s) {
 	display: none;
 }
@@ -139,7 +188,6 @@ setTimeout(() => {
 .mySwiper2 {
   width: 100%;
   max-width: 720px;
-  height: 240px;
 }
 
 @screen md {
@@ -147,6 +195,7 @@ setTimeout(() => {
 		width: 100%;
 		max-width: 720px;
 		height: 520px;
+		margin: 0 48px;
 	}
 }
 </style>
