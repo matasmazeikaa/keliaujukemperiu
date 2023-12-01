@@ -25,7 +25,7 @@ const props = defineProps<Props>();
 				<div
 					v-for="category in pageCategory"
 					:key="category.title"
-					class="p-20 md:p-40 md:pt-156 relative w-full max-w-[62.4rem] max-h-[40rem] flex flex-col"
+					class="p-20 md:p-40 md:pt-156 relative justify-end w-full max-w-[62.4rem] max-h-[40rem] flex flex-col"
 				>
 					<NuxtLink
 						:target="isTargeBlank ? '_blank' : '_self'"

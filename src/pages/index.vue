@@ -25,6 +25,8 @@ definePageMeta({
 		{{ section.pageCategory }}
 	</Component>
 
-	<LazyTestimonialsSection />
+	<DelayHydration>
+		<LazyTestimonialsSection />
+	</DelayHydration>
 	<GotQuestionsSection/>
 </template>

@@ -38,7 +38,6 @@
     "@nuxtjs/strapi": "^1.9.1",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
-    "@pinia/nuxt": "^0.4.9",
     "@strapi/strapi": "^4.10.1",
     "@unlighthouse/nuxt": "^0.10.0",
     "@vueuse/nuxt": "^10.1.0",
@@ -58,6 +57,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "nuxt": "3.4.2",
+    "nuxt-delay-hydration": "^1.3.3",
     "nuxt-gtag": "^1.1.1",
     "nuxt-headlessui": "^1.1.4",
     "nuxt-seo-kit": "^1.3.8",
@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@nuxt/image": "1.0.0-rc.2",
+    "@nuxtjs/robots": "^3.0.0",
     "body-scroll-lock": "4.0.0-beta.0",
     "dayjs": "^1.11.7",
     "markdown-it": "^13.0.2",

@@ -24,6 +24,8 @@ const image = computed(() => gotQuestionsSection.value?.data.attributes.image ??
 			:src="image.data.attributes.url"
 			:alt="image.data.attributes.alternateText || ''"
 			:quality="85"
+			width="1280"
+			height="432"
 			format="webp"
 			loading="lazy"
 		/>

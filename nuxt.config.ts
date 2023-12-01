@@ -1,3 +1,4 @@
+
 const APP_META = {
 	favicon: '/favicon.ico',
 	url: 'https://keliaujukemperiu.lt',
@@ -73,17 +74,22 @@ export default defineNuxtConfig({
 		],
 	},
 
+	delayHydration: {
+		mode: 'init',
+	},
+
 	// modules
 	modules: [
 		'@nuxtjs/tailwindcss',
 		'@nuxt/image',
 		'@formkit/nuxt',
-		'@pinia/nuxt',
 		'@unlighthouse/nuxt',
 		'@vueuse/nuxt',
 		'nuxt-headlessui',
+		'nuxt-delay-hydration',
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/strapi',
+		'@nuxtjs/robots',
 		'nuxt-swiper',
 		[
 			'@nuxtjs/google-fonts',
@@ -109,11 +115,6 @@ export default defineNuxtConfig({
 	// headlessui
 	headlessui: {
 		prefix: 'H',
-	},
-
-	// pinia
-	pinia: {
-		autoImports: ['defineStore'],
 	},
 
 	// unlighthouse

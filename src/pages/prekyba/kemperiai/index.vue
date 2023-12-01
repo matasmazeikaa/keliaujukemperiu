@@ -22,6 +22,23 @@ const { data: campers } = await useAsyncData(
 	}),
 );
 
+const { data: partnersData } = await useAsyncData(
+	'all-partners',
+	() => find('partners', {
+		populate: 'deep',
+	}),
+);
+
+const partners = computed(() => partnersData?.value?.data || []);
+
+const mapPartnersData = computed(() => partners.value.map(({ attributes }) => ({
+	title: attributes.title,
+	subtitle: attributes.thumbnailAbout,
+	icon: attributes.Hero.icon,
+	image: attributes.Hero.image,
+	to: `/susikomplektuokite/${attributes.slug}`,
+})));
+
 const pageData = computed((): any => data.value?.data.attributes);
 
 useHead({
@@ -39,7 +56,7 @@ useHead({
 <template>
 	<SectionHeroSubpage	:title="pageData.title"/>
 
-	<section class="section-padding py-80">
+	<section class="section-padding my-80">
 		<div class="container mx-auto">
 			<Camper
 				v-for="{ attributes: camper } in campers?.data"
@@ -49,6 +66,11 @@ useHead({
 			/>
 		</div>
 	</section>
+
+	<SectionPartnerCategory
+		title="Atstovaujami gamintojai"
+		:page-category="mapPartnersData"
+	/>
 
 	<GotQuestionsSection/>
 </template>
