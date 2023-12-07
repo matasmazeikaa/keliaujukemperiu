@@ -40,6 +40,8 @@ useHead({
 		},
 	],
 });
+
+console.log(pageData);
 </script>
 
 <template>
@@ -62,6 +64,7 @@ useHead({
 
 	<SectionPartnerCategory
 		id="susikomplektuokite"
+		:title="pageData.partnerCategoryTitle"
 		:page-category="mapPartnersData"
 	/>
 

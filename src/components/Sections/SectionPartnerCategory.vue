@@ -12,6 +12,7 @@ interface Props {
 	}[]
 	isTargeBlank: boolean;
 	buttonCta?: string;
+	title: string;
 }
 
 const props = defineProps<Props>();
@@ -20,7 +21,7 @@ const props = defineProps<Props>();
 <template>
 	<div class="section-padding my-64 md:my-120">
 		<div class="container mx-auto">
-			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">Išsirinkite įrangą</h2>
+			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">{{ title || 'Išsirinkite įrangą'}}</h2>
 			<div class="flex flex-wrap justify-center gap-32">
 				<div
 					v-for="category in pageCategory"

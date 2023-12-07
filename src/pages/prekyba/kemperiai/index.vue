@@ -51,6 +51,8 @@ useHead({
 		},
 	],
 });
+
+console.log(pageData);
 </script>
 
 <template>
@@ -68,7 +70,7 @@ useHead({
 	</section>
 
 	<SectionPartnerCategory
-		title="Atstovaujami gamintojai"
+		:title="pageData.partnerCategoryTitle"
 		:page-category="mapPartnersData"
 	/>
 
