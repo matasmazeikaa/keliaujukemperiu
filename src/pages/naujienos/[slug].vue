@@ -52,8 +52,6 @@ useHead({
 	<section class="section-padding mt-20 md:mt-40">
 		<div class="container mx-auto text-center max-w-[72rem]">
 			<div class="mx-auto mb-8 md:mb-12 text-label flex gap-4 justify-center text-center">
-				<label class=" text-primary-blue">{{ blog.author }}</label>
-				<label class="text-gray">•</label>
 				<label class="text-gray capitalize">{{ date }}</label>
 			</div>
 			<h1 class="text-h4 md:text-h1 mb-16 md:mb-40">{{ blog.title }}</h1>
@@ -123,6 +121,16 @@ useHead({
 	line-height: 30px;
 	letter-spacing: 0em;
 	text-align: left;
+}
+
+.blog-content a {
+	color: rgb(115 137 235 / 1);
+	cursor: pointer;
+}
+
+.blog-content a:hover {
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .blog-content h3 {

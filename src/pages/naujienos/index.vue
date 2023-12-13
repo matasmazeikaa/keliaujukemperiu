@@ -111,7 +111,7 @@ watch(currentPage, () => {
 	<SectionHeroSubpage :title="pageData.title" />
 	<section class="section-padding">
 		<div class="container mx-auto">
-			<div class="place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 py-20 md:my-64">
+			<div class="place-items-center items-baseline grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-40 py-20 md:my-64">
 				<BlogCard
 					v-for="{
 						attributes: {

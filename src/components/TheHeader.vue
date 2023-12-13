@@ -194,15 +194,6 @@ onMounted(() => {
 							</li>
 						</ul>
 						<div class="md:block">
-							<p
-								class="working-time mb-4"
-								:class="{
-									'text-secondary-white': !isWhite,
-									'text-primary-black': isWhite,
-								}"
-							>
-								I - V, 09:00 - 18:00
-							</p>
 							<a
 								class="phone-number"
 								href="tel:+37061809966"
@@ -267,11 +258,6 @@ onMounted(() => {
 
 				<div class="flex flex-col text-center mt-24 max-w-[32.8rem] w-full">
 					<div class="mb-16">
-						<p
-							class="working-time text-primary-black mb-4"
-						>
-							I - V, 09:00 - 18:00
-						</p>
 						<a
 							class="phone-number text-primary-blue"
 							href="tel:+37061809966"

@@ -100,7 +100,7 @@ const {
 					<div>
 						<IconAddress class="mb-16"/>
 						<p class="mb-8 text-button button-style-1">Adresas</p>
-						<p class="text-body-2 text-white opacity-75">{{ address || 'Žiežmarių 30, LT-56174, Kaišiadorys, Lietuva' }}</p>
+						<p class="text-body-2 text-white opacity-75">{{ address || 'Žiežmarių 28, LT-56174, Kaišiadorys, Lietuva' }}</p>
 					</div>
 					<div>
 						<IconCompany class="mb-16"/>
