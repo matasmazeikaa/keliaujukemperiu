@@ -51,12 +51,15 @@ useHead({
 		},
 	],
 });
-
-console.log(pageData);
 </script>
 
 <template>
 	<SectionHeroSubpage	:title="pageData.title"/>
+
+	<SectionPartnerCategory
+		:title="pageData.partnerCategoryTitle"
+		:page-category="mapPartnersData"
+	/>
 
 	<section class="section-padding my-80">
 		<div class="container mx-auto">
@@ -68,11 +71,6 @@ console.log(pageData);
 			/>
 		</div>
 	</section>
-
-	<SectionPartnerCategory
-		:title="pageData.partnerCategoryTitle"
-		:page-category="mapPartnersData"
-	/>
 
 	<GotQuestionsSection/>
 </template>
