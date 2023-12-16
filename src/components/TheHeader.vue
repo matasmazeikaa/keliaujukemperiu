@@ -51,6 +51,16 @@ const items = computed(() => [
 		},
 	},
 	{
+		to: '/prekyba#susikomplektuokite',
+		title: 'Susikomplektuokite',
+		subpages: {
+			Burstner: '/susikomplektuokite/burstner',
+			Hymer: '/susikomplektuokite/hymer',
+			Eriba: '/susikomplektuokite/eriba',
+			Carado: '/susikomplektuokite/carado',
+		},
+	},
+	{
 		to: '/iranga',
 		title: 'Įranga',
 	},
