@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {
-	disableBodyScroll, enableBodyScroll,
+	disableBodyScroll,
+	enableBodyScroll,
 } from 'body-scroll-lock';
 
 interface Props {
