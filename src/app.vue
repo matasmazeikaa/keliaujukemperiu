@@ -4,6 +4,11 @@
 		class="h-full"
 	>
 		<Body class="h-full">
+			<noscript>
+				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FZTKCQ"
+				height="0" width="0" style="display:none;visibility:hidden"></iframe>
+			</noscript>
+
 			<NuxtLayout class="h-full">
 				<SeoKit />
 				<NuxtPage class="h-full"/>
@@ -19,33 +24,6 @@ const context = useNuxtApp();
 function loadGtag() {
 	// Replace 'GA_MEASUREMENT_ID' with your actual Google Analytics Measurement ID
 	const GA_MEASUREMENT_ID = 'G-R5110Y4W22';
-
-	// Create a script element
-	const script = document.createElement('script');
-
-	script.async = true;
-
-	// Set the source of the script to the gtag.js URL with your Measurement ID
-	script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-
-	// Append the script to the document's head
-	document.head.appendChild(script);
-
-	// Set up the gtag.js configuration after the script has loaded
-	script.addEventListener('load', () => {
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			window.dataLayer.push(arguments);
-		}
-
-		gtag('js', new Date());
-		gtag('config', GA_MEASUREMENT_ID);
-	});
-}
-
-function loadGtag2() {
-	// Replace 'GA_MEASUREMENT_ID' with your actual Google Analytics Measurement ID
-	const GA_MEASUREMENT_ID = 'GTM-5FZTKCQ';
 
 	// Create a script element
 	const script = document.createElement('script');
@@ -101,9 +79,6 @@ setTimeout(loadFacebookPixel, 10000);
 
 // Set a timeout to call the loadGtag function after 10 seconds
 setTimeout(loadGtag, 10000);
-
-// Set a timeout to call the loadGtag function after 10 seconds
-setTimeout(loadGtag2, 10000);
 
 const { data } = await useAsyncData(
 	'meta',

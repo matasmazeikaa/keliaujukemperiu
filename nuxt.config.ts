@@ -1,4 +1,3 @@
-
 const APP_META = {
 	favicon: '/favicon.ico',
 	url: 'https://keliaujukemperiu.lt',
@@ -40,6 +39,13 @@ export default defineNuxtConfig({
 			},
 		},
 		provider: 'localImageSharp',
+	},
+
+	gtm: {
+		id: 'GTM-5FZTKCQ',
+		defer: true,
+		compatibility: false,
+		nonce: '2726c7f26c',
 	},
 
 	strapi: {
@@ -90,6 +96,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/strapi',
 		'@nuxtjs/robots',
+		'@zadigetvoltaire/nuxt-gtm',
 		'nuxt-swiper',
 		[
 			'@nuxtjs/google-fonts',

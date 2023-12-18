@@ -5,8 +5,7 @@
   "license": "MIT",
   "author": "matasmazeikaa",
   "engines": {
-    "node": ">=16.10.0",
-    "pnpm": ">=7.10.0"
+    "node": ">=16.10.0"
   },
   "scripts": {
     "dev": "nuxt dev",
@@ -21,7 +20,7 @@
   },
   "lint-staged": {
     "**/*.{js,ts,vue,html}": [
-      "pnpm lint:fix"
+      "yarn lint:fix"
     ]
   },
   "devDependencies": {
@@ -41,6 +40,7 @@
     "@strapi/strapi": "^4.10.1",
     "@unlighthouse/nuxt": "^0.10.0",
     "@vueuse/nuxt": "^10.1.0",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "autoprefixer": "^10.4.14",
     "consola": "^3.1.0",
     "eslint": "^8.39.0",
