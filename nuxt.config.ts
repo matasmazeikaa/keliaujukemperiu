@@ -5,6 +5,10 @@ const APP_META = {
 };
 
 export default defineNuxtConfig({
+	runtimeConfig: {
+		STRAPI_URL: process.env.STRAPI_URL,
+	},
+
 	// app config
 	extends: ['nuxt-seo-kit'],
 

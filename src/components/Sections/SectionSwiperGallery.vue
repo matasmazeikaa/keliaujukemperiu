@@ -13,6 +13,11 @@ interface Props {
 const props = defineProps<Props>();
 
 const hasMoreItems = computed(() => props.images.length > 6);
+
+const config = useRuntimeConfig();
+
+console.log(config);
+
 </script>
 
 <template>
@@ -29,7 +34,7 @@ const hasMoreItems = computed(() => props.images.length > 6);
 					<a
 						v-for="(image, index) in images"
 						:key="image.attributes.url"
-						:href="`http://127.0.0.1:1337${image.attributes.url}`"
+						:href="`${config.public.strapi.url}${image.attributes.url}`"
 						class="gallery-image relative"
 						:class="[`gallery-image-${index}`]"
 					>
@@ -49,7 +54,7 @@ const hasMoreItems = computed(() => props.images.length > 6);
 						</div>
 
 						<img
-							:src="`http://127.0.0.1:1337${image.attributes.url}`"
+							:src="`${config.public.strapi.url}${image.attributes.url}`"
 							:alt="image.attributes.alternateText || ''"
 							width="720"
 							height="520"
