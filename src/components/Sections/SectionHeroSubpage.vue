@@ -2,20 +2,35 @@
 interface Props {
 	title: string;
 	subtitle: string;
+	mobile: boolean;
 }
 
 defineProps<Props>();
 </script>
 
 <template>
-	<section class="relative section-padding mt-[7.2rem] lg:mt-96 bg-primary-black py-20 md:py-100 text-center">
+	<section
+		class="relative section-padding mt-[7.2rem] lg:mt-96 bg-primary-black py-20 text-center"
+		:class="{
+			'md:py-100': !mobile,
+			'py-20': mobile,
+		}"
+	>
 		<img
 			class="top-0 left-0 absolute w-full h-full object-cover"
 			src="@/assets/image/herosubpageBackground.jpg"
 			alt=""
 		/>
 		<div class="container mx-auto relative z-10">
-			<h1 class="text-h4 md:text-h1 text-white">{{ title }}</h1>
+			<h1
+				class="text-h4 text-white"
+				:class="{
+					'md:text-h1': !mobile,
+					'text-h4': mobile,
+				}"
+			>
+				{{ title }}
+			</h1>
 			<p
 				v-if="subtitle"
 				class="text-body-2 mt-16 text-white"

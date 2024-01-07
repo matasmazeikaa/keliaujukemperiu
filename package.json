@@ -76,6 +76,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "body-scroll-lock": "4.0.0-beta.0",
     "dayjs": "^1.11.7",
+    "lightgallery": "^2.7.2",
     "markdown-it": "^13.0.2",
     "nuxt-swiper": "^1.1.0",
     "nuxt3-meta-pixel": "^1.0.9"

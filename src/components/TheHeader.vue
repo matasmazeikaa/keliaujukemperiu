@@ -39,7 +39,6 @@ const items = computed(() => [
 		subpages: {
 			Kemperiai: '/prekyba/kemperiai',
 			Karavanai: '/prekyba/karavanai',
-			Susikomplektuokite: '/prekyba#susikomplektuokite',
 			Finansavimas: '/finansavimas',
 		},
 	},
@@ -52,13 +51,13 @@ const items = computed(() => [
 		},
 	},
 	{
-		to: '/prekyba#susikomplektuokite',
-		title: 'Susikomplektuokite',
+		to: '/prekyba#gamintojai',
+		title: 'Gamintojai',
 		subpages: {
-			Burstner: '/susikomplektuokite/burstner',
-			Hymer: '/susikomplektuokite/hymer',
-			Eriba: '/susikomplektuokite/eriba',
-			Carado: '/susikomplektuokite/carado',
+			Burstner: '/gamintojai/burstner',
+			Hymer: '/gamintojai/hymer',
+			Eriba: '/gamintojai/eriba',
+			Carado: '/gamintojai/carado',
 		},
 	},
 	{

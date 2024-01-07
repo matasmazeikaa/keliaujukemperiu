@@ -36,7 +36,7 @@ const mapPartnersData = computed(() => partners.value.map(({ attributes }) => ({
 	subtitle: attributes.thumbnailAbout,
 	icon: attributes.Hero.icon,
 	image: attributes.Hero.image,
-	to: `/susikomplektuokite/${attributes.slug}`,
+	to: `/gamintojai/${attributes.slug}`,
 })));
 
 const pageData = computed((): any => data.value?.data.attributes);
@@ -63,6 +63,7 @@ useHead({
 
 	<section class="section-padding my-80">
 		<div class="container mx-auto">
+			<h2 class="text-h4 md:text-h2 mb-20 md:mb-64">Kemperiai vietoje</h2>
 			<Camper
 				v-for="{ attributes: camper } in campers?.data"
 				:key="camper.title"

@@ -44,33 +44,7 @@ useHead({
 		v-bind="partner.Hero"
 	/>
 
-	<section class="section-padding my-64 md:mt-120 md:mb-80">
-		<div class="container mx-auto">
-			<div class="gallery">
-				<div
-					v-for="image, index in partner.gallery.data"
-					:key="image.id"
-					:class="`box-${index}`"
-				>
-					<NuxtImg
-						:src="image.attributes.url"
-						:alt="image.attributes.alternateText || ''"
-						:quality="85"
-						format="webp"
-						:width="image.attributes.width"
-						:height="image.attributes.height"
-					/>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<SectionAboutCamper :text="partner.about" />
-
-	<SectionCamperPrice
-		:prices="partner.camperPrice"
-		:infos="partner.info.map(({ title }) => title)"
-	/>
+	<SectionAboutCamper class="my-80" :text="partner.about" />
 
 	<section
 		v-if="partner.campers.data.length"

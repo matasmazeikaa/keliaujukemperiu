@@ -33,10 +33,16 @@ useHead({
 		},
 	],
 });
+
+console.log(camper);
+console.log(camper.value);
 </script>
 
 <template>
-	<SectionHeroSubpage :title="camper.title" />
+	<SectionHeroSubpage
+		:title="camper.title"
+		mobile
+	/>
 
 	<SectionSwiperGallery
 		v-if="camper.innerPageImages.data.length"
@@ -72,6 +78,21 @@ useHead({
 		]"
 		:infos="['Civilinis ir KASKO draudimai su nuomos paslauga! Frančizė tik 300-800 eur.']"
 	/>
+
+	<section
+		v-if="camper.additionalCampers.data.length"
+		class="section-padding my-80"
+	>
+		<div class="container mx-auto">
+			<h2 class="mb-24 md:mb-64 text-h1-mobile md:text-h2">Kiti modeliai</h2>
+			<Camper
+				v-for="{ attributes } in camper.additionalCampers.data"
+				:key="attributes.title"
+				class="last:mb-0 mb-80"
+				v-bind="attributes"
+			/>
+		</div>
+	</section>
 
 	<GotQuestionsSection/>
 </template>

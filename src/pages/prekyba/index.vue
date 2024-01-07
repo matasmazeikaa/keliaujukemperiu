@@ -27,7 +27,7 @@ const mapPartnersData = computed(() => partners.value.map(({ attributes }) => ({
 	subtitle: attributes.thumbnailAbout,
 	icon: attributes.Hero.icon,
 	image: attributes.Hero.image,
-	to: `/susikomplektuokite/${attributes.slug}`,
+	to: `/gamintojai/${attributes.slug}`,
 })));
 
 useHead({
@@ -50,6 +50,12 @@ console.log(pageData);
 		:subtitle="pageData.subtitle"
 	/>
 
+	<SectionPartnerCategory
+		id="gamintojai"
+		:title="pageData.partnerCategoryTitle"
+		:page-category="mapPartnersData"
+	/>
+
 	<SectionListImages
 		v-bind="pageData.aboutSellCamperSection"
 		to="/prekyba/kemperiai"
@@ -61,12 +67,6 @@ console.log(pageData);
 	/>
 
 	<SectionPartners />
-
-	<SectionPartnerCategory
-		id="susikomplektuokite"
-		:title="pageData.partnerCategoryTitle"
-		:page-category="mapPartnersData"
-	/>
 
 	<SectionFinance
 		v-bind="pageData.aboutFinanceSection"

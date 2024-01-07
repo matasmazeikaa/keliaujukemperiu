@@ -11,8 +11,8 @@ const FOOTER = {
 			link: '/prekyba/karavanai',
 		},
 		{
-			title: 'Susikomplektuokite',
-			link: '/prekyba#susikomplektuokite',
+			title: 'Gamintojai',
+			link: '/prekyba#gamintojai',
 		},
 		{
 			title: 'Finansavimas',

@@ -33,10 +33,16 @@ useHead({
 		},
 	],
 });
+
+console.log(camper)
+console.log(camper.value)
 </script>
 
 <template>
-	<SectionHeroSubpage :title="camper.title" />
+	<SectionHeroSubpage
+		:title="camper.title"
+		mobile
+	/>
 
 	<SectionSwiperGallery
 		v-if="camper.innerPageImages.data.length"
@@ -59,6 +65,21 @@ useHead({
 		:prices="camper.priceFull"
 		:infos="camper.camperPriceInfo.map(({ title }) => title)"
 	/>
+
+	<!-- <section
+		v-if="partner.campers.data.length"
+		class="section-padding my-80"
+	>
+		<div class="container mx-auto">
+			<h2 class="mb-24 md:mb-64 text-h1-mobile md:text-h2">Vietoje turime šiuos modelius</h2>
+			<Camper
+				v-for="{ attributes: camper } in partner.campers.data"
+				:key="camper.title"
+				class="last:mb-0 mb-80"
+				v-bind="camper"
+			/>
+		</div>
+	</section> -->
 
 	<GotQuestionsSection/>
 </template>

@@ -1,108 +1,208 @@
 <script lang="ts" setup>
-import {
-	SwiperNavigation, SwiperFreeMode, SwiperThumbs,
-} from '~~/.nuxt/imports';
+import lgThumbnail from 'lightgallery/plugins/thumbnail/lg-thumbnail.es5';
+import lgZoom from 'lightgallery/plugins/zoom/lg-zoom.es5';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import 'lightgallery/css/lg-zoom.css';
+import Lightgallery from 'lightgallery/vue';
 
 interface Props {
 	images: {}[]
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
 
-const swiperInstance = useSwiper();
-
-const controlledSwiper = ref<typeof swiperInstance>({} as typeof swiperInstance);
-const setControlledSwiper = (swiper: any) => {
-	controlledSwiper.value = swiper;
-};
-
-const modules = [
-	SwiperNavigation,
-	SwiperFreeMode,
-	SwiperThumbs,
-];
-
-setTimeout(() => {
-	controlledSwiper.value.slideTo(3);
-}, 3000);
+const hasMoreItems = computed(() => props.images.length > 6);
 </script>
 
 <template>
-	<section class="section-padding bg-white my-20 md:my-80">
+	<section class="section-padding bg-white my-20 md:my-40">
 		<div class="container mx-auto">
 			<div class="flex items-center justify-center">
-				<div class="p-16 hidden md:block">
-					<IconArrowRightGallery
-						class="cursor-pointer w-80 h-auto"
-						role="button"
-						alt="previous testimonial"
-						aria-label="previous testimonial"
-						@click="controlledSwiper.slidePrev()"
-					/>
-				</div>
-
-				<Swiper
-					v-if="images.length"
-					:space-between="10"
-					:navigation="true"
-					:modules="modules"
-					loop
-					class="mySwiper2 mb-24"
-					@swiper="setControlledSwiper"
+				<Lightgallery
+					:settings="{
+						speed: 500,
+						plugins: [lgThumbnail, lgZoom]
+					}"
+					class="gallery max-w-[72rem]"
 				>
-					<div class="arrow-container-mobile-left md:hidden">
-						<IconArrowRightGallery
-							class="cursor-pointer "
-							role="button"
-							alt="previous testimonial"
-							aria-label="previous testimonial"
-							@click="controlledSwiper.slidePrev()"
-						/>
-					</div>
-					<SwiperSlide
+					<a
 						v-for="(image, index) in images"
 						:key="image.attributes.url"
+						:href="`http://127.0.0.1:1337${image.attributes.url}`"
+						class="gallery-image relative"
+						:class="[`gallery-image-${index}`]"
 					>
-						<NuxtImg
-							:src="image.attributes.url"
+						<div
+							v-if="index === 0"
+							class="p-8 bg-gray w-fit rounded absolute right-0 zoom-in-0"
+						>
+							<ZoomIn />
+						</div>
+
+						<div
+							v-else
+							class="p-8 bg-gray w-fit rounded absolute right-0 left-0 top-0 hidden"
+							:class="[`zoom-in-${index}`]"
+						>
+							<ZoomIn />
+						</div>
+
+						<img
+							:src="`http://127.0.0.1:1337${image.attributes.url}`"
 							:alt="image.attributes.alternateText || ''"
-							class="md:w-[72rem] md:h-[52rem] object-cover"
 							width="720"
 							height="520"
-							format="webp"
-							quality="85"
 						/>
-					</SwiperSlide>
 
-					<div class="image-count-container">
-						<p class="text-label md:text-body-2 text-white">{{ (controlledSwiper.realIndex || 0) + 1 }} / {{ images.length }}</p>
-					</div>
-
-					<div class="arrow-container-mobile-right md:hidden" >
-						<IconArrowRightGallery
-							class="cursor-pointer rotate-180"
-							role="button"
-							alt="previous testimonial"
-							aria-label="previous testimonial"
-							@click="controlledSwiper.slideNext()"
-						/>
-					</div>
-				</Swiper>
-				<div class="p-16 hidden md:block" >
-					<IconArrowRightGallery
-						class="cursor-pointer rotate-180 w-80 h-auto"
-						role="button"
-						alt="previous testimonial"
-						aria-label="previous testimonial"
-						@click="controlledSwiper.slideNext()"
-					/>
-				</div>
+						<div
+							v-if="index === 5 && hasMoreItems"
+							class="more-foto-overlay"
+						>
+							<p class="text-body-3 md:text-h5">+{{ images.length }} Foto</p>
+						</div>
+					</a>
+				</Lightgallery>
 			</div>
 		</div>
 	</section>
 </template>
 
 <style>
+
+.gallery-image-0:hover .zoom-in-0 {
+	background: black !important;
+}
+
+.gallery-image-1:hover .zoom-in-1 {
+	display: block;
+}
+.gallery-image-2:hover .zoom-in-2 {
+	display: block;
+}
+.gallery-image-3:hover .zoom-in-3 {
+	display: block;
+}
+.gallery-image-4:hover .zoom-in-4 {
+	display: block;
+}
+
+.more-foto-overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.more-foto-overlay:hover {
+	background: rgba(0,0,0,0.8);
+}
+
+.gallery {
+	display: grid;
+	gap: 8px;
+}
+
+.gallery-image {
+	display: none;
+}
+
+.gallery-image:nth-child(1) {
+	grid-column: 1 / 6;
+	grid-row: 1 / 1;
+	display: block;
+}
+
+.gallery-image:nth-child(2) {
+	grid-column: 1 / 1;
+	grid-row: 2 / 2;
+	display: block;
+}
+
+.gallery-image:nth-child(3) {
+	grid-column: 2 / 3;
+	grid-row: 2 / 2;
+	display: block;
+}
+
+.gallery-image:nth-child(4) {
+	grid-column: 3 / 4;
+	grid-row: 2 / 2;
+	display: block;
+
+}
+
+.gallery-image:nth-child(5) {
+	grid-column: 4 / 5;
+	grid-row: 2 / 2;
+	display: block;
+}
+
+.gallery-image:nth-child(6) {
+	grid-column: 5 / 6;
+	grid-row: 2 / 2;
+	display: block;
+}
+
+.gallery-image:nth-child(2) img {
+	height: 100px;
+	object-fit: cover;
+	width: auto;
+}
+
+.gallery-image:nth-child(3) img {
+	height: 100px;
+	object-fit: cover;
+	width: auto;
+}
+
+.gallery-image:nth-child(4) img {
+	height: 100px;
+	object-fit: cover;
+	width: auto;
+
+}
+
+.gallery-image:nth-child(5) img {
+	height: 100px;
+	object-fit: cover;
+	width: auto;
+}
+
+.gallery-image:nth-child(6) img {
+	height: 100px;
+	object-fit: cover;
+	width: auto;
+}
+
+@media only screen and (max-width: 500px) {
+	.gallery-image:nth-child(2) img {
+		height: auto !important;
+	}
+
+	.gallery-image:nth-child(3) img {
+		height: auto;
+	}
+
+	.gallery-image:nth-child(4) img {
+		height: auto;
+	}
+
+	.gallery-image:nth-child(5) img {
+		height: auto;
+	}
+
+	.gallery-image:nth-child(6) img {
+		height: auto;
+	}
+}
 
 .arrow-container-mobile-left {
 	padding: 12px;
@@ -117,77 +217,6 @@ setTimeout(() => {
 	justify-content: center;
 	color: white;
 	z-index: 100;
-}
-
-.arrow-container-mobile-right {
-	padding: 12px;
-	position: absolute;
-    top: 50%;
-	right: 0;
-    transform: translate(0,-50%);
-
-	background: rgba(0, 0, 0, 0.5);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: white;
-	z-index: 100;
-}
-
-.image-count-container {
-	padding: 18px;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	background: rgba(0, 0, 0, 0.5);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: white;
-	z-index: 100;
-}
-
-@screen md {
-	.image-count-container {
-		padding: 48px;
-	}
-
-	.arrow-container-mobile-left, .arrow-container-mobile-right {
-		display: none;
-	}
-}
-
-.swiper-button-prev:not(.s) {
-	display: none;
-}
-
-.swiper-button-next:not(.s) {
-	display: none;
-}
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-.mySwiper2 {
-  width: 100%;
-  max-width: 720px;
 }
 
 @screen md {

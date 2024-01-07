@@ -36,7 +36,10 @@ useHead({
 </script>
 
 <template>
-	<SectionHeroSubpage :title="camper.title" />
+	<SectionHeroSubpage
+		:title="camper.title"
+		mobile
+	/>
 
 	<SectionSwiperGallery
 		v-if="camper.innerPageImages.data.length"
