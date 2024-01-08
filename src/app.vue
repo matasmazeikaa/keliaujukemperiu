@@ -123,6 +123,10 @@ useHead({
 	],
 	meta: [
 		{
+			name: 'google-site-verification',
+			content: 'qoG1Lf5mtZ-tM05IXTleeahHkwzryrhwwEjB_NYxjjQ',
+		},
+		{
 			name: 'msapplication-TileColor',
 			content: '#da532c',
 		},
