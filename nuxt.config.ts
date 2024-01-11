@@ -46,7 +46,7 @@ export default defineNuxtConfig({
 	},
 
 	gtm: {
-		id: 'GTM-5FZTKCQ',
+		id: ['GTM-5FZTKCQ', 'GTM-W3FS23ZR'],
 		defer: true,
 		compatibility: false,
 		nonce: '2726c7f26c',
