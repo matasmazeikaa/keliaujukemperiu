@@ -31,5 +31,10 @@ useHead({
 		v-bind="pageData.providedServicesSection"
 	/>
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<GotQuestionsSection/>
 </template>

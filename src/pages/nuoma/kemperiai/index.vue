@@ -50,5 +50,10 @@ useHead({
 		</div>
 	</section>
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<GotQuestionsSection/>
 </template>
