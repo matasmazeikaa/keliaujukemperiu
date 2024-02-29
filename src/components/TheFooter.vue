@@ -4,11 +4,11 @@ const FOOTER = {
 	servicesLinks: [
 		{
 			title: 'Kemperiai',
-			link: '/prekyba/kemperiai',
+			link: '/prekyba/kemperiu-pardavimas',
 		},
 		{
 			title: 'Karavanai',
-			link: '/prekyba/karavanai',
+			link: '/prekyba/parduodami-karavanai',
 		},
 		{
 			title: 'Gamintojai',
@@ -22,11 +22,11 @@ const FOOTER = {
 	companyLinks: [
 		{
 			title: 'Kemperiai',
-			link: '/nuoma/kemperiai',
+			link: '/nuoma/kemperiu-nuoma',
 		},
 		{
 			title: 'Karavanai',
-			link: '/nuoma/karavanai',
+			link: '/nuoma/karavanu-nuoma',
 		},
 	],
 	otherLinks: [
@@ -36,7 +36,7 @@ const FOOTER = {
 		},
 		{
 			title: 'Servisas',
-			link: '/servisas',
+			link: '/karavanu-ir-kemperiu-servisas',
 		},
 		{
 			title: 'Apie mus',
@@ -49,6 +49,10 @@ const FOOTER = {
 		{
 			title: 'Kontaktai',
 			link: '/kontaktai',
+		},
+		{
+			title: 'DUK',
+			link: '/duk',
 		},
 	],
 };

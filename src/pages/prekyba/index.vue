@@ -40,8 +40,6 @@ useHead({
 		},
 	],
 });
-
-console.log(pageData);
 </script>
 
 <template>
@@ -58,7 +56,7 @@ console.log(pageData);
 
 	<SectionListImages
 		v-bind="pageData.aboutSellCamperSection"
-		to="/prekyba/kemperiai"
+		to="/prekyba/kemperiu-pardavimas"
 	/>
 
 	<SectionListImages

@@ -44,7 +44,10 @@ useHead({
 		v-bind="partner.Hero"
 	/>
 
-	<SectionAboutCamper class="my-80" :text="partner.about" />
+	<SectionAboutCamper
+		class="my-80"
+		:text="partner.about"
+	/>
 
 	<section
 		v-if="partner.campers.data.length"

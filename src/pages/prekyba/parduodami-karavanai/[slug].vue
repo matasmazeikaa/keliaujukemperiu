@@ -5,7 +5,7 @@ const route = useRoute();
 const { slug } = route.params;
 
 const { data: campers } = await useAsyncData(
-	`campers-campers-rent-${slug}`,
+	`campers-caravan-sale-${slug}`,
 	() => find('campers', {
 		populate: 'deep',
 		filters: {
@@ -33,9 +33,6 @@ useHead({
 		},
 	],
 });
-
-console.log(camper);
-console.log(camper.value);
 </script>
 
 <template>
@@ -53,14 +50,6 @@ console.log(camper.value);
 
 	<SectionCamperSpecifications
 		v-bind="camper"
-		:year="camper.year"
-		:gearbox="camper.gearbox"
-		:weight="camper.weight"
-		:fuel-capacity="camper.fuelCapacity"
-		:places-to-sit="camper.placesToSit"
-		:places-to-sleep="camper.placesToSleep"
-		:heating="camper.heating"
-		:fridge-capacity="camper.fridgeCapacity"
 	/>
 
 	<SectionCamperComplectation
@@ -70,29 +59,9 @@ console.log(camper.value);
 	/>
 
 	<SectionCamperPrice
-		:prices="[
-			{
-				title: `${camper.pricePerDay} EUR su PVM`,
-				subtitle: 'Dienos kaina'
-			}
-		]"
-		:infos="['Civilinis ir KASKO draudimai su nuomos paslauga! Frančizė tik 300-800 eur.']"
+		:prices="camper.priceFull"
+		:infos="camper.camperPriceInfo.map(({ title }) => title)"
 	/>
-
-	<section
-		v-if="camper.additionalCampers.data.length"
-		class="section-padding my-80"
-	>
-		<div class="container mx-auto">
-			<h2 class="mb-24 md:mb-64 text-h1-mobile md:text-h2">Kiti modeliai</h2>
-			<Camper
-				v-for="{ attributes } in camper.additionalCampers.data"
-				:key="attributes.title"
-				class="last:mb-0 mb-80"
-				v-bind="attributes"
-			/>
-		</div>
-	</section>
 
 	<GotQuestionsSection/>
 </template>

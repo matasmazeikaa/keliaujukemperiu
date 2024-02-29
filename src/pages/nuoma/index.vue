@@ -30,7 +30,7 @@ useHead({
 
 	<SectionListImages
 		v-bind="pageData.chooseCamperSection"
-		to="/nuoma/kemperiai"
+		to="/nuoma/kemperiu-nuoma"
 	/>
 
 	<SectionListImages

@@ -9,6 +9,63 @@ export default defineNuxtConfig({
 		STRAPI_URL: process.env.STRAPI_URL,
 	},
 
+	routeRules: {
+		'/prekyba/kemperiai': {
+			redirect: {
+				to: '/prekyba/kemperiu-pardavimas',
+				statusCode: 301,
+			},
+		},
+		'/prekyba/kemperiai/:id': {
+			redirect: {
+				to: '/prekyba/kemperiu-pardavimas',
+				statusCode: 301,
+			},
+		},
+		'/prekyba/karavanai': {
+			redirect: {
+				to: '/prekyba/parduodami-karavanai',
+				statusCode: 301,
+			},
+		},
+		'/prekyba/karavanai/:id': {
+			redirect: {
+				to: '/prekyba/parduodami-karavanai',
+				statusCode: 301,
+			},
+		},
+		'/nuoma/kemperiai': {
+			redirect: {
+				to: '/nuoma/kemperiu-nuoma',
+				statusCode: 301,
+			},
+		},
+		'/nuoma/kemperiai/:id': {
+			redirect: {
+				to: '/nuoma/kemperiu-nuoma',
+				statusCode: 301,
+			},
+		},
+		'/nuoma/karavanai': {
+			redirect: {
+				to: '/nuoma/karavanu-nuoma',
+				statusCode: 301,
+			},
+		},
+		'/nuoma/karavanai/:id': {
+			redirect: {
+				to: '/nuoma/karavanu-nuoma',
+				statusCode: 301,
+			},
+		},
+		'/servisas': {
+			redirect: {
+				to: '/karavanu-ir-kemperiu-servisas',
+				statusCode: 301,
+			},
+		},
+	},
+
 	// app config
 	extends: ['nuxt-seo-kit'],
 
@@ -46,7 +103,10 @@ export default defineNuxtConfig({
 	},
 
 	gtm: {
-		id: ['GTM-5FZTKCQ', 'GTM-W3FS23ZR'],
+		id: [
+			'GTM-5FZTKCQ',
+			'GTM-W3FS23ZR',
+		],
 		defer: true,
 		compatibility: false,
 		nonce: '2726c7f26c',

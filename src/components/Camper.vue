@@ -28,12 +28,28 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-const camperSlug = props.isCaravan ? 'karavanai' : 'kemperiai';
-
 const isSalePage = computed(() => route.path.includes('/prekyba'));
 const isRentPage = computed(() => route.path.includes('/nuoma'));
 
-const camperRoute = isRentPage.value ? `/nuoma/${camperSlug}/${props.slug}` : `/prekyba/${camperSlug}/${props.slug}`;
+const camperRoute = computed(() => {
+	if (isSalePage.value && props.isCaravan) {
+		return `/prekyba/parduodami-karavanai/${props.slug}`;
+	}
+
+	if (isSalePage.value && !props.isCaravan) {
+		return `/prekyba/kemperiu-pardavimas/${props.slug}`;
+	}
+
+	if (isRentPage.value && props.isCaravan) {
+		return `/nuoma/karavanu-nuoma/${props.slug}`;
+	}
+
+	if (isRentPage.value && !props.isCaravan) {
+		return `/nuoma/kemperiu-nuoma/${props.slug}`;
+	}
+
+	return '';
+});
 
 const shouldShowNuo = computed(() => !props.pricePerDay.includes('-'));
 </script>

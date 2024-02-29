@@ -15,9 +15,6 @@ const props = defineProps<Props>();
 const hasMoreItems = computed(() => props.images.length > 6);
 
 const config = useRuntimeConfig();
-
-console.log(config);
-
 </script>
 
 <template>

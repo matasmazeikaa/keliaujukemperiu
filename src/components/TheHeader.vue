@@ -37,8 +37,8 @@ const items = computed(() => [
 		to: '/prekyba',
 		title: 'Prekyba',
 		subpages: {
-			Kemperiai: '/prekyba/kemperiai',
-			Karavanai: '/prekyba/karavanai',
+			Kemperiai: '/prekyba/kemperiu-pardavimas',
+			Karavanai: '/prekyba/parduodami-karavanai',
 			Finansavimas: '/finansavimas',
 		},
 	},
@@ -46,8 +46,8 @@ const items = computed(() => [
 		to: '/nuoma',
 		title: 'Nuoma',
 		subpages: {
-			Kemperiai: '/nuoma/kemperiai',
-			Karavanai: '/nuoma/karavanai',
+			Kemperiai: '/nuoma/kemperiu-nuoma',
+			Karavanai: '/nuoma/karavanu-nuoma',
 		},
 	},
 	{
@@ -65,7 +65,7 @@ const items = computed(() => [
 		title: 'Įranga',
 	},
 	{
-		to: '/servisas',
+		to: '/karavanu-ir-kemperiu-servisas',
 		title: 'Servisas',
 	},
 	{
@@ -76,6 +76,10 @@ const items = computed(() => [
 	{
 		to: '/kontaktai',
 		title: 'Kontaktai',
+	},
+	{
+		title: 'DUK',
+		to: '/duk',
 	},
 ].filter(Boolean));
 

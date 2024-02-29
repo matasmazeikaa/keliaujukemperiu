@@ -90,6 +90,8 @@ const { data } = await useAsyncData(
 
 const ogImageThumbnail = computed(() => `${context.$config.strapi.url}${data?.value?.data?.attributes?.ogImage.data.attributes.formats.medium.url}`);
 
+onMounted(() => {});
+
 useHead({
 	titleTemplate: '%s',
 	link: [
