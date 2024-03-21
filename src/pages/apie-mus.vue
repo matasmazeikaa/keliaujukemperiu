@@ -31,5 +31,10 @@ useHead({
 		v-bind="pageData.whyPickUsSection"
 	/>
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<GotQuestionsSection/>
 </template>

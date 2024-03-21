@@ -38,5 +38,10 @@ useHead({
 		list-reversed
 	/>
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<GotQuestionsSection />
 </template>

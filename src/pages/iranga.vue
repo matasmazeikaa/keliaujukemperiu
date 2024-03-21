@@ -33,5 +33,10 @@ useHead({
 		is-targe-blank
 	/>
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<GotQuestionsSection/>
 </template>

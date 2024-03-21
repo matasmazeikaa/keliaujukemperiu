@@ -63,5 +63,10 @@ useHead({
 		:infos="camper.camperPriceInfo.map(({ title }) => title)"
 	/>
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<GotQuestionsSection/>
 </template>

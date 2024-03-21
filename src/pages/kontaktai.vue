@@ -27,5 +27,10 @@ useHead({
 
 	<ContactUsSection />
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<SectionFindUs />
 </template>

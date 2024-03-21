@@ -70,5 +70,10 @@ useHead({
 		v-bind="pageData.aboutFinanceSection"
 	/>
 
+	<SectionSEO
+		v-if="pageData.seoSection"
+		:text="pageData.seoSection"
+	/>
+
 	<GotQuestionsSection />
 </template>
