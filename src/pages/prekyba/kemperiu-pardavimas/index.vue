@@ -19,6 +19,7 @@ const { data: campers } = await useAsyncData(
 			isForSale: true,
 			isCaravan: false,
 		},
+		sort: 'title:asc',
 	}),
 );
 
