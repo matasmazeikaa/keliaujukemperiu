@@ -37,6 +37,12 @@ export default <Partial<Config>>{
 					'anti-flash-white': '#EDEDED',
 					gray: '#9A9AAC',
 				},
+				green: {
+					DEFAULT: '#00D395',
+				},
+				red: {
+					DEFAULT: '#FF5A5F',
+				},
 			},
 			fontSize: {
 				h1: [

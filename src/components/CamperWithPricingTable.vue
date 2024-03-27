@@ -19,7 +19,16 @@ interface Props {
 	visibleAttribute: {
 		id: number;
 		visibleAttribute: string
-	}[]
+	}[];
+	pricingTable: {
+		prices: {
+			period: string;
+			seasonS: string;
+			seasonM: string;
+			seasonL: string;
+		}[];
+	},
+	selectedSeason: 'seasonS' | 'seasonM' | 'seasonL';
 }
 
 const props = defineProps<Props>();
@@ -53,39 +62,39 @@ const camperRoute = computed(() => {
 });
 
 const shouldShowNuo = computed(() => !props.pricePerDay.includes('-'));
+
+console.log(props.pricingTable);
 </script>
 
 <template>
-	<div class="flex items-center flex-wrap lg:flex-nowrap gap-16 md:gap-40">
-		<NuxtImg
-			v-if="thumbnail.data?.attributes.url"
-			class="hero-image max-w-[60rem] h-auto lg:h-[45rem] w-full object-cover"
-			:src="thumbnail.data?.attributes.url || ''"
-			:alt="thumbnail.data?.attributes.alternativeText || title || ''"
-			:quality="85"
-			width="600"
-			height="450"
-			format="webp"
-		/>
+	<div class="flex items-top flex-wrap lg:flex-nowrap gap-16 md:gap-40">
 		<div class="w-full">
-			<h3 class="text-h4 md:text-h3 mb-8">{{ title }}</h3>
+			<NuxtImg
+				v-if="thumbnail.data?.attributes.url"
+				class="mb-24 hero-image h-auto lg:h-[25rem] w-full object-cover"
+				:src="thumbnail.data?.attributes.url || ''"
+				:alt="thumbnail.data?.attributes.alternativeText || title || ''"
+				:quality="85"
+				width="600"
+				height="250"
+				format="webp"
+			/>
+
+			<h3 class="text-h4 md:text-h4 mb-8">{{ title }}</h3>
 			<p class="text-body-2 text-primary-black mb-12 md:mb-16">{{ previewDescription }}</p>
 			<div
 				v-if="isRentPage && pricePerDay"
-				class="flex gap-8 mb-24 h-[5.4rem]"
+				class="grid grid-cols-2 gap-16 md:flex mb-16"
 			>
 				<p
-					v-if="shouldShowNuo"
-					class="button-style-1 md:text-h4 text-primary-black mb-8"
+					v-for="periodEntry in pricingTable?.prices"
+					:key="periodEntry.period"
+					class="text-label text-primary-black"
 				>
-					Nuo
+					{{ periodEntry.period }} {{ periodEntry[selectedSeason] }} / d.
 				</p>
-				<p class="text-h4 md:text-h3 text-primary-black mb-16">{{ pricePerDay }}€ / d.</p>
 			</div>
-			<div v-if="isSalePage && price">
-				<p class="text-h4 md:text-h3 text-primary-black mb-16">{{ numberWithCommas(price) }} €</p>
-			</div>
-			<div class="grid grid-cols-2 gap-16 md:flex md:gap-40 mb-24">
+			<div class="grid grid-cols-2 gap-16 md:flex mb-16">
 				<CamperSpecification
 					v-for="attribute in visibleAttribute"
 					:key="attribute.id"

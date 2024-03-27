@@ -21,6 +21,10 @@ const FOOTER = {
 	],
 	companyLinks: [
 		{
+			title: 'Kainoraštis',
+			link: '/nuoma/kainorastis',
+		},
+		{
 			title: 'Kemperiai',
 			link: '/nuoma/kemperiu-nuoma',
 		},

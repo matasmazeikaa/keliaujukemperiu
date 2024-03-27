@@ -2,6 +2,7 @@
 interface Props {
 	secondary?: boolean;
 	white?: boolean;
+	darkWhite?: boolean;
 	orange?: boolean;
 	to?: string;
 	isLoading?: boolean;
@@ -20,6 +21,7 @@ const target = props.to?.includes('http') ? '_blank' : '_self';
 			:class="{
 				'backdrop-blur-sm bg-white bg-opacity-10 text-white': secondary,
 				'button--white': white,
+				'button--dark-white': darkWhite,
 				'bg-primary-yellow text-primary-black border-gray-200': orange,
 				'bg-primary-blue': !secondary && !white && !orange,
 			}"
@@ -34,6 +36,7 @@ const target = props.to?.includes('http') ? '_blank' : '_self';
 			:class="{
 				'backdrop-blur-sm bg-white bg-opacity-10 text-white': secondary,
 				'button--white': white,
+				'button--dark-white': darkWhite,
 				'bg-primary-yellow text-primary-black border-gray-200': orange,
 				'btn-primary--loading': isLoading,
 				'bg-primary-blue': !secondary && !white && !orange,
@@ -73,6 +76,13 @@ const target = props.to?.includes('http') ? '_blank' : '_self';
 	background-color: transparent;
 	transition: backdrop-filter 0.1s ease-in-out;
 	border: 1px solid var(--secondary-white, #FFF);
+}
+
+.button--dark-white {
+	background-color: transparent;
+	transition: backdrop-filter 0.1s ease-in-out;
+	border: 1px solid var(--dark, #000);
+	color: #000;
 }
 
 .button--white:hover {

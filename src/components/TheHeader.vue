@@ -46,6 +46,7 @@ const items = computed(() => [
 		to: '/nuoma',
 		title: 'Nuoma',
 		subpages: {
+			Kainoraštis: '/nuoma/kainorastis',
 			Kemperiai: '/nuoma/kemperiu-nuoma',
 			Karavanai: '/nuoma/karavanu-nuoma',
 		},
